@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ymehdi <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: ymehdi <ymehdi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/24 16:29:52 by ymehdi            #+#    #+#             */
-/*   Updated: 2020/01/24 17:36:44 by ymehdi           ###   ########.fr       */
+/*   Updated: 2020/02/03 18:15:02 by ymehdi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
+# include <stdarg.h>
 
-int		ft_printf(const char *, ...);
+int		ft_printf(const char *format, ...);
 
 #endif
-
