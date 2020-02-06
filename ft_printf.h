@@ -6,7 +6,7 @@
 /*   By: ymehdi <ymehdi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/24 16:29:52 by ymehdi            #+#    #+#             */
-/*   Updated: 2020/02/03 18:15:02 by ymehdi           ###   ########.fr       */
+/*   Updated: 2020/02/04 16:43:46 by ymehdi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,11 @@
 # define FT_PRINTF_H
 # include <stdarg.h>
 
+typedef struct s_declare
+{
+  va_list ap;
+  int red;
+} t_declare;
 int		ft_printf(const char *format, ...);
 
 #endif
