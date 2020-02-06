@@ -6,18 +6,22 @@
 /*   By: ymehdi <ymehdi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/24 16:29:52 by ymehdi            #+#    #+#             */
-/*   Updated: 2020/02/04 16:43:46 by ymehdi           ###   ########.fr       */
+/*   Updated: 2020/02/06 13:52:28 by ymehdi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 # include <stdarg.h>
+# include "libft/libft.h"
 
 typedef struct s_declare
 {
   va_list ap;
-  int red;
+  int     red;
+  char    tabIndex[14];
+  int     tmpIndex;
+  void (*tabFunction[4]) (va_list *);
 } t_declare;
 int		ft_printf(const char *format, ...);
 
