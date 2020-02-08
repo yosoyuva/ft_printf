@@ -6,27 +6,20 @@
 /*   By: ymehdi <ymehdi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/24 16:29:15 by ymehdi            #+#    #+#             */
-/*   Updated: 2020/02/08 15:22:33 by ymehdi           ###   ########.fr       */
+/*   Updated: 2020/02/08 16:18:00 by ymehdi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include <stdio.h>
 
-void	ft_putnbr_hex(int nb)
+void	ft_putnbr_hex(int n)
 {
-	unsigned int	nbr;
-
-	if (nb < 0)
-	{
-		ft_putchar('-');
-		nbr = nb * (-1);
-	}
-	else
-		nbr = nb;
-	if (nbr > 15)
-		ft_putnbr(nbr / 16);
-	ft_putchar(nbr % 16 + 48);
+	if (n >= 16)
+		ft_putnbr_hex(n / 16);
+	n = n % 16;
+	n += n < 10 ? '0' : 'a' - 10;
+	write(1, &n, 1);
 }
 
 void	ft_printf_c(va_list *ap)
@@ -112,9 +105,8 @@ int	ft_printf(const char *format, ...)
 int main(void)
 {
 	int	a = 5;
-	ft_printf("hello %s commect ca va ?\n", "yuv", "hey");
-	printf("hello %s commect ca va ?\n", "yuv", "hey");
-//  ft_printf("ft: je suis %s et j'ai %d ans", "yuv", 7);
-//	printf("printf: je suis %s et j'ai %p ans\n", "yuv", &a);
+
+	ft_printf("hello %p \n", &a);
+	printf("hello %p \n", &a);
   return (0);
 }
