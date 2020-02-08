@@ -6,7 +6,7 @@
 /*   By: ymehdi <ymehdi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/24 16:29:15 by ymehdi            #+#    #+#             */
-/*   Updated: 2020/02/06 13:56:47 by ymehdi           ###   ########.fr       */
+/*   Updated: 2020/02/08 01:36:34 by ymehdi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,17 +56,26 @@ int find_index(char *tabIndex, char c)
   return (-1);
 }
 
+void    *ft_funcpy(void (*dst[4]) (va_list *))
+{
+
+        dst[0] = ft_printf_c;
+        dst[1] = ft_printf_s;
+        dst[2] = ft_printf_d;
+        return (dst);
+}
+
 int	ft_printf(const char *format, ...)
 {
   t_declare dec;
 
-  dec.tabIndex = {'c', 's', 'p', 'd', 'i', 'u', 'x', 'X', '%', '-', '0', '.', '*', 0};
-  //(*tabFunction[13]) (va_list *) = {ft_printf_c, ft_printf_s, ft_printf_p, ft_printf_d, ft_printf_i, ft_printf_u, ft_printf_x, ft_printf_X, ft_printf_%, ft_printf_less, ft_printf_zero, ft_printf_dot, ft_printf_star};
-  dec.(*tabFunction[4]) (va_list *) = {ft_printf_c, ft_printf_s, ft_printf_p, ft_printf_d);
+  ft_strcpy(dec.tabIndex, "csdpiuxX%-0.*");
+  ft_funcpy(dec.tabFunction);
   va_start(dec.ap, format);
+  dec.red = 0;
   while(format[dec.red])
   {
-    while(format[dec.red] != '%')
+    while(format[dec.red] != '%' && format[dec.red])
     {
       ft_putchar(format[dec.red]);
       (dec.red)++;
@@ -74,11 +83,9 @@ int	ft_printf(const char *format, ...)
     if (format[dec.red] == '%')
     {
       (dec.red)++;
-      dec.tmpIndex = find_index(dec.tabIndex, format[dec.red]);
-      if (dec.tmpIndex != -1)
-        (*(dec.tabFunction)[dec.tmpIndex]) (&(dec.ap));
-
+        dec.tabFunction[find_index(dec.tabIndex, format[dec.red])] (&dec.ap);
     }
+    dec.red++;
   }
   va_end(dec.ap);
   return (dec.red);
@@ -86,6 +93,7 @@ int	ft_printf(const char *format, ...)
 
 int main(void)
 {
-  ft_printf("%d", 7);
+  char *str = "YUVA";
+  ft_printf("je suis %s\n j'ai %d ans", str, 20);
   return (0);
 }
