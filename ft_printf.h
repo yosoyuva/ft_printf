@@ -6,7 +6,7 @@
 /*   By: ymehdi <ymehdi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/24 16:29:52 by ymehdi            #+#    #+#             */
-/*   Updated: 2020/02/08 01:36:07 by ymehdi           ###   ########.fr       */
+/*   Updated: 2020/02/08 15:19:57 by ymehdi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ typedef struct s_declare
   int     red;
   char    tabIndex[14];
   //int     tmpIndex;
-  void (*tabFunction[3]) (va_list *);
+  void (*tabFunction[4]) (va_list *);
 } t_declare;
 int		ft_printf(const char *format, ...);
 
