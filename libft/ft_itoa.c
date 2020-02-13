@@ -6,13 +6,13 @@
 /*   By: ymehdi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/11 20:10:27 by ymehdi            #+#    #+#             */
-/*   Updated: 2019/12/02 11:27:44 by ymehdi           ###   ########.fr       */
+/*   Updated: 2020/02/13 05:34:22 by ymehdi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int		ft_nlength(int n)
+int		ft_nlength(int n)
 {
 	int	size;
 

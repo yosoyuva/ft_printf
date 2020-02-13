@@ -6,7 +6,7 @@
 /*   By: ymehdi <ymehdi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/15 15:19:54 by ymehdi            #+#    #+#             */
-/*   Updated: 2019/12/10 17:48:51 by ymehdi           ###   ########.fr       */
+/*   Updated: 2020/02/13 05:37:14 by ymehdi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -151,4 +151,6 @@ void			ft_lstclear(t_list **lst, void (*del)(void*));
 void			ft_lstiter(t_list *lst, void (*f)(void *));
 
 t_list			*ft_lstmap(t_list *lst, void *(*f)(void*), void (*del)(void*));
+
+int				ft_nlength(int n);
 #endif
