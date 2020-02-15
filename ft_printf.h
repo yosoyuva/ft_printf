@@ -6,7 +6,7 @@
 /*   By: ymehdi <ymehdi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/24 16:29:52 by ymehdi            #+#    #+#             */
-/*   Updated: 2020/02/15 20:01:36 by ymehdi           ###   ########.fr       */
+/*   Updated: 2020/02/15 20:03:57 by ymehdi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,5 +44,11 @@ void	ft_printf_u(va_list *ap, const char *format, int *red, t_flag *flag);
 void	ft_printf_x(va_list *ap, const char *format, int *red, t_flag *flag);
 void	ft_printf_xm(va_list *ap, const char *format, int *red, t_flag *flag);
 void	ft_printf_percent(va_list *ap, const char *format, int *red, t_flag *flag);
+int   is_flg_conv(char c);
+int   is_flg(char c);
+void	ft_putnbr_hex(long long int n);
+void	ft_putnbr_hexm(long long int n);
+void	ft_putnbr_oct(long long int n);
+void	ft_putnbr_u(unsigned int nbr);
 
 #endif
