@@ -6,7 +6,7 @@
 /*   By: ymehdi <ymehdi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/24 16:29:15 by ymehdi            #+#    #+#             */
-/*   Updated: 2020/02/15 19:52:28 by ymehdi           ###   ########.fr       */
+/*   Updated: 2020/02/15 19:59:18 by ymehdi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,22 +59,7 @@ void    *ft_funcpy(void (*dst[13]) (va_list *, const char *, int *, t_flag *))
 				dst[12] = ft_printf_star;*/
         return (dst);
 }
-int	is_flg(char c)
-{
-	if (c == '-' || c == '0' || c == '.' || c == '*')
-		return (1);
-	else
-		return (-1);
-}
 
-int	is_flg_conv(char c)
-{
-	if (is_flg(c) || c == 'c' || c == 's' || c == 'p' || c == 'd' || c == 'i' \
-		|| c == 'u' || c == 'x' || c == 'X' || c == '%')
-		return (1);
-	else
-		return (-1);
-}
 /*void    *ft_funcpy_flg(void (*dst[4]) (va_list *, const char *, int *))
 {
 				dst[0] = ft_printf_minus;
