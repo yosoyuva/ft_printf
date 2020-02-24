@@ -4,6 +4,6 @@ int	main(void)
 {
 	int a = 1;
 	void *p = &a;
-	printf("%p\n", &p);
+	printf("%5d\n", 5);
 	return(0);
 }

@@ -1,26 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_add_c_to_end_of_s.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ymehdi <ymehdi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/24 15:59:02 by ymehdi            #+#    #+#             */
-/*   Updated: 2020/02/24 19:08:15 by ymehdi           ###   ########.fr       */
+/*   Created: 2020/02/24 16:24:25 by ymehdi            #+#    #+#             */
+/*   Updated: 2020/02/24 16:33:54 by ymehdi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
-# include <stdarg.h>
-# include "libft/libft.h"
+#include "ft_printf.h"
 
-typedef struct s_flag
+char	*ft_add_c_to_end_of_s(char *s, char c)
 {
-  int zero;
-  int minus;
-} t_flag;
+  char  *str;
 
-int ft_printf(const char *, ...);
-
-#endif
+  str = ft_strnew(ft_strlen(s) + 1);
+  ft_strcpy(str, s);
+  str[ft_strlen(s)] = c;
+  return (str);
+}
