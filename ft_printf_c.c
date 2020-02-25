@@ -1,24 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_printf_c.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ymehdi <ymehdi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/24 16:00:13 by ymehdi            #+#    #+#             */
-/*   Updated: 2020/02/25 12:04:40 by ymehdi           ###   ########.fr       */
+/*   Created: 2020/02/13 05:59:40 by ymehdi            #+#    #+#             */
+/*   Updated: 2020/02/25 17:35:19 by ymehdi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int ft_printf(const char *format, ...)
+void	ft_printf_c(char *str, int *i, va_list *list, char *result_s)
 {
-  va_list list;
-  int     result;
+  char  c;
 
-  va_start(list, format);
-  result = ft_parsing(format, list);
-  va_end(list);
-  return (result);
+  c = va_arg(*list, int);
+  result_s = ft_add_c_to_end_of_s(result_s, c);
 }

@@ -6,7 +6,7 @@
 /*   By: ymehdi <ymehdi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/24 16:29:15 by ymehdi            #+#    #+#             */
-/*   Updated: 2020/02/16 14:44:47 by ymehdi           ###   ########.fr       */
+/*   Updated: 2020/02/25 12:47:41 by ymehdi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ int find_index(char *tabIndex, char c)
   {
     if (tabIndex[i] == c)
       return (i);
+    else if (ft__isdegit(tabIndex[i])
+      return (14);
     i++;
   }
   return (-1);
