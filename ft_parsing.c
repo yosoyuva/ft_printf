@@ -6,7 +6,7 @@
 /*   By: ymehdi <ymehdi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/24 16:10:30 by ymehdi            #+#    #+#             */
-/*   Updated: 2020/02/25 12:48:01 by ymehdi           ###   ########.fr       */
+/*   Updated: 2020/02/27 14:58:40 by ymehdi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,11 +38,40 @@ char  *ft_parse_inner(const char *str, int *i, va_list *list, char *result_s)
   return (s);
 }
 
+void	ft_init_flag(t_flag *flag)
+{
+  flag->zero = 0;
+  flag->minus = 0;
+  flag->digit = 0;
+}
+
+void	ft_parse_flag(const char *str, int *i, t_flag *flag)
+{
+  while(str[*i] && is_flag(str[*i]))
+  {
+    if (ft_isdigit(str[*i]))
+      ft_get_digit(str, &i, &flag);
+    else if (str[*i] == '0' && str[*i - 1] == '%')
+    {
+      (*i)++;
+      ft_get_zero(str, &i, &flag);
+    }
+    else if (str[*i] == '-')
+    {
+      (*i)++;
+      ft_init_flag(&flag);
+      ft_get_minus(str, &i, &flag);
+    }
+    (*i)++;
+  }
+}
+
 int   ft_parsing(const char *str, va_list list)
 {
   char      *result_s;
   int       i;
   t_declare dec;
+  t_flag    flag;
 
   i = 0;
   result_s = ft_strnew(1);
@@ -62,9 +91,14 @@ int   ft_parsing(const char *str, va_list list)
       if (ft_check(str, i))
       {
         /* On analyse ce qu'il ya entre '%' et et le flag type */
-        dec.tmpIndex = find_index(dec.tabIndex, str[i]);
+        /*dec.tmpIndex = find_index(dec.tabIndex, str[i]);
         dec.tabFunction[dec.tmpIndex] (str, &i, &list, result_s);
-        ft_parse_inner(str, &i, &list, result_s);
+        ft_parse_inner(str, &i, &list, result_s);*/
+        ft_init_flag(&flag);
+        ft_parse_flag(str, &i, &flag);
+        ft_write_zero(&flag, result_s);
+        result_s = ft_get_type_and_flag(str, &i, &flag, &list, result_s);
+
       }
       else
       {

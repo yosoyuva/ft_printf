@@ -6,7 +6,7 @@
 /*   By: ymehdi <ymehdi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/24 15:59:02 by ymehdi            #+#    #+#             */
-/*   Updated: 2020/02/25 12:10:34 by ymehdi           ###   ########.fr       */
+/*   Updated: 2020/02/27 14:26:03 by ymehdi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ typedef struct  s_flag
 {
   int zero;
   int minus;
+  int digit;
 }               t_flag;
 
 typedef struct  s_declare
