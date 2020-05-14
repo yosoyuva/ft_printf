@@ -14,10 +14,8 @@
 
 void	*ft_calloc(size_t count, size_t size)
 {
-	size_t	i;
 	char	*tab;
 
-	i = 0;
 	if (!count || !size)
 	{
 		count = 1;
