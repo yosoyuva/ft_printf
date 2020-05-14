@@ -6,18 +6,18 @@
 /*   By: ymehdi <ymehdi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/13 06:04:28 by ymehdi            #+#    #+#             */
-/*   Updated: 2020/02/15 19:49:19 by ymehdi           ###   ########.fr       */
+/*   Updated: 2020/05/14 15:17:05 by ymehdi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../inc/ft_printf.h"
 
-void	ft_printf_percent(va_list *ap, const char *format, int *red, t_flag *flag)
+char	*ft_printf_percent(va_list *ap, const char *format, int *red, t_flag *flag)
 {
-  ft_putchar('%');
-	while (flag->minus != 0)
-	{
-		ft_putchar(' ');
-		flag->minus--;
-	}
+  char  *c;
+
+  c = ft_strnew(1);
+  c = ft_add_c_to_end_of_s(c, '%');
+  ft_init_flag(flag);
+  return (c);
 }

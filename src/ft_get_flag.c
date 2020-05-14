@@ -6,11 +6,11 @@
 /*   By: ymehdi <ymehdi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/27 14:07:46 by ymehdi            #+#    #+#             */
-/*   Updated: 2020/02/27 14:54:54 by ymehdi           ###   ########.fr       */
+/*   Updated: 2020/05/14 15:20:43 by ymehdi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../inc/ft_printf.h"
 
 void	ft_get_zero(const char *str, int *i, t_flag *flag)
 {
@@ -51,7 +51,13 @@ void	ft_get_digit(const char *str, int *i, t_flag *flag)
   flag->digit = n /* - la taille de l'arguement */ ;
 }
 
-char  *ft_write_zero(t_list flag, char *result_s)
+void    ft_get_star(const char *str, int *i, t_flag *flag, va_list *ap)
+{
+  flag->digit = va_arg(*ap, long int);
+  (*i)++;
+}
+
+/*char  *ft_write_zero(t_flag *flag, char *result_s)
 {
   char  *s;
   int   i;
@@ -61,13 +67,13 @@ char  *ft_write_zero(t_list flag, char *result_s)
   {
     s = ft_strnew(ft_strlen(result_s) + flag->zero + 1);
     ft_strcpy(s, result_s);
-    s[ft_strlen(reslut_s) + flag->zero] = '\0';
+    s[ft_strlen(result_s) + flag->zero] = '\0';
     while (s[ft_strlen(reslut_s) + i])
     {
       s[ft_strlen(reslut_s) + i] = '0';
       i++;
     }
-  }
+  }*/
   /*
   else if (flag->digit)
   {
@@ -80,4 +86,4 @@ char  *ft_write_zero(t_list flag, char *result_s)
       i++;
     }
   }*/
-}
+//}

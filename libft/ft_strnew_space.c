@@ -1,24 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_strnew_space.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ymehdi <ymehdi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/24 16:00:13 by ymehdi            #+#    #+#             */
-/*   Updated: 2020/02/25 12:04:40 by ymehdi           ###   ########.fr       */
+/*   Created: 2019/04/10 14:47:16 by ymehdi            #+#    #+#             */
+/*   Updated: 2020/03/07 09:18:18 by ymehdi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int ft_printf(const char *format, ...)
+char	*ft_strnew_space(size_t size)
 {
-  va_list list;
-  int     result;
+	void	*s;
 
-  va_start(list, format);
-  result = ft_parsing(format, list);
-  va_end(list);
-  return (result);
+	if ((s = malloc(size + 1)) == NULL)
+		return (NULL);
+	ft_memset(s, ' ', size + 1);
+	return (s);
 }

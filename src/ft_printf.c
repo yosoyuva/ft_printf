@@ -5,114 +5,134 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ymehdi <ymehdi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/01/24 16:29:15 by ymehdi            #+#    #+#             */
-/*   Updated: 2020/02/25 12:47:41 by ymehdi           ###   ########.fr       */
+/*   Created: 2020/02/24 16:00:13 by ymehdi            #+#    #+#             */
+/*   Updated: 2020/05/14 15:20:26 by ymehdi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
-#include <stdio.h>
+#include "../inc/ft_printf.h"
 
-int find_index(char *tabIndex, char c)
+int my_printf(const char *format, ...)
 {
-  int i;
+  va_list list;
+  int     result;
 
-  i = 0;
-  while (tabIndex[i] != 0)
-  {
-    if (tabIndex[i] == c)
-      return (i);
-    else if (ft__isdegit(tabIndex[i])
-      return (14);
-    i++;
-  }
-  return (-1);
+/* start reading the first arg */
+  va_start(list, format);
+/* parsing args */
+  result = ft_parsing(format, &list);
+/* close reading arg */
+  va_end(list);
+  return (result);
 }
 
-/*int find_flag(char *tabIndex, char c)
+int	main(int ac, char **av)
 {
-  int i;
+  int	ret[2];
+  char	*str = "astek";
+  char	stre[] = {'a', 's', 10, 'e', 'k', 0};
 
-  i = 0;
-  while (tabFlag[i] != 0)
-  {
-    if (tabFlag[i] == c)
-      return (i);
-    i++;
-  }
-  return (-1);
-}*/
+  printf("##### Tests simple : 1 point par test reussi #####\n");
+  printf(   "0) Modulo [%%] : {%%}\n");
+  my_printf("=> Modulo [%%] : {%%}\n");
+  printf(   "1) Nombre signe [**d] : {%**d}\n", 42, 5,27);
+  my_printf("=> Nombre signe [**d] : {%**d}\n", 42, 5,27);
+  printf(   "2) Nombre signe [i] : {%i}\n", 42);
+  my_printf("=> Nombre signe [i] : {%i}\n", 42);
+  //printf(   "3) Nombre octal [o] : {%o}\n", 012345);
+  //y_printf("=> Nombre octal [o] : {%o}\n", 012345);
+  printf(   "4) Nombre non signe [u] : {%u}\n", 42);
+  my_printf("=> Nombre non signe [u] : {%u}\n", 42);
+  printf(   "5) Nombre hexadecimal [x] : {%x}\n", 0x12345);
+  my_printf("=> Nombre hexadecimal [x] : {%x}\n", 0x12345);
+  printf(   "6) Nombre hexadecimal [X] : {%X}\n", 0x12345);
+  my_printf("=> Nombre hexadecimal [X] : {%X}\n", 0x12345);
+  //printf(   "7) Nombre binaire [b] : {101111101111110000001}\n");
+  //my_printf("=> Nombre binaire [b] : {%b}\n", 1564545);
+  printf(   "8) Caractere [c] : {%c}\n", 42);
+  my_printf("=> Caractere [c] : {%c}\n", 42);
+  printf(   "9) Chaine [s] : {%s}\n", str);
+  my_printf("=> Chaine [s] : {%s}\n", str);
+  printf(   "10) Chaine etendue [S] : as\\012ek\n");
+  my_printf("=>  Chaine etendue [S] : %S\n", stre);
+  printf(   "11) Pointeur [p] : {%p}\n", str);
+  my_printf("=>  Pointeur [p] : {%p}\n", str);
+  printf(   "12) Mauvais parametre [k] : {%k}\n", 42);
+  my_printf("=>  Mauvais parametre [k] : {%k}\n", 42);
 
-void    *ft_funcpy(void (*dst[13]) (va_list *, const char *, int *, t_flag *))
-{
+  printf("Appuyez sur [entree] pour continuer...\n");
+  getchar();
 
-        dst[0] = ft_printf_c;
-        dst[1] = ft_printf_s;
-        dst[2] = ft_printf_p;
-        dst[3] = ft_printf_d;
-				dst[4] = ft_printf_i;
-				dst[5] = ft_printf_u;
-				dst[6] = ft_printf_x;
-				dst[7] = ft_printf_xm;
-				dst[8] = ft_printf_percent;
-				dst[9] = ft_printf_minus;
-				dst[10] = ft_printf_zero;
-				/*dst[11] = ft_printf_dot;
-				dst[12] = ft_printf_star;*/
-        return (dst);
-}
+  printf("\n##### Tests pour verifier : -1pt par resultat errone #####\n");
+  printf(   "1) Affichage multiple [d d d] : {%d} {%d} {%d}\n", 0, 42, 2147483647);
+  my_printf("=> Affichage multiple [d d d] : {%d} {%d} {%d}\n", 0, 42, 2147483647);
+  printf(   "2) Affichage multiple [d d d] : {%d} {%d} {%d}\n", -0, -42, -2147483648);
+  my_printf("=> Affichage multiple [d d d] : {%d} {%d} {%d}\n", -0, -42, -2147483648);
+  printf(   "3) Affichage multiple [c d s] : {%c} {%d} {%s}\n", 42, 42, str);
+  my_printf("=> Affichage multiple [c d s] : {%c} {%d} {%s}\n", 42, 42, str);
+  printf(   "4) Affichage multiple [X p d] : {%X} {%p} {%d}\n", 0x12345, str, 42);
+  my_printf("=> Affichage multiple [X p d] : {%X} {%p} {%d}\n", 0x12345, str, 42);
+//  printf(   "5) Affichage multiple [s S X] : {%s} {as\\012ek} {%X}\n", str, -1);
+//  my_printf("=> Affichage multiple [s S X] : {%s} {%S} {%X}\n", str, stre, -1);
+  printf(   "5) Affichage long [d d d ...] : %d %d %d %d %d %d %d %d %d %d %d %d\n", 1, 2, 3, 4, 5, 6, 7, 8, 9, 0xA, 0xB, 0xC);
+  my_printf("=> Affichage long [d d d ...] : %d %d %d %d %d %d %d %d %d %d %d %d\n", 1, 2, 3, 4, 5, 6, 7, 8, 9, 0xA, 0xB, 0xC);
+//  printf(   "6) Affichage long [s S s ...] : %s as\\012ek %s as\\012ek %s as\\012ek %s as\\012ek %s as\\012ek %s as\\012ek\n", str, str, str, str, str, str);
+//  my_printf("=> Affichage long [s S s ...] : %s %S %s %S %s %S %s %S %s %S %s %S\n", str, stre, str, stre, str, stre, str, stre, str, stre, str, stre);
 
-/*void    *ft_funcpy_flg(void (*dst[4]) (va_list *, const char *, int *))
-{
-				dst[0] = ft_printf_minus;
-				dst[1] = ft_printf_zero;
-				dst[2] = ft_printf_dot;
-				dst[3] = ft_printf_star;
-        return (dst);
-}*/
+  printf("Appuyez sur une touche pour continuer...\n");
+  getchar();
 
-int	ft_printf(const char *format, ...)
-{
-  t_declare 			dec;
-	static t_flag		flag;
+  printf("\n##### Formatage : 1pt pour 3 tests reussis  #####\n");
+  printf(   "1) Formatage simple [d] : {%d}\n", 42);
+  my_printf("=> Formatage simple [d] : {%d}\n", 42);
+  printf(   "2) Formatage simple [x] : {%x}\n", 0x12345);
+  my_printf("=> Formatage simple [x] : {%x}\n", 0x12345);
+//  printf(   "3) Formatage simple [#o] : {%#o}\n", 012345);
+//  my_printf("=> Formatage simple [#o] : {%#o}\n", 012345);
+  printf(   "4) Formatage simple [05d] : {%05d}\n", 42);
+  my_printf("=> Formatage simple [05d] : {%05d}\n", 42);
+  printf(   "5) Formatage simple [5d] : {%5d}\n", 42);
+  my_printf("=> Formatage simple [5d] : {%5d}\n", 42);
+  printf(   "6) Formatage simple [ d] : {% d}\n", 42);
+  my_printf("=> Formatage simple [ d] : {% d}\n", 42);
+  printf(   "7) Formatage simple [-d] : {%-d}\n", 42);
+  my_printf("=> Formatage simple [-d] : {%-d}\n", 42);
+  printf(   "8) Formatage simple [+d] : {%+d}\n", 42);
+  my_printf("=> Formatage simple [+d] : {%+d}\n", 42);
+  printf(   "9) Formatage simple [+d] : {%+d}\n", -42);
+  my_printf("=> Formatage simple [+d] : {%+d}\n", -42);
+  printf(   "10) Formatage multiple [ 5d] : {% 5d}\n", 42);
+  my_printf("=>  Formatage multiple [ 5d] : {% 5d}\n", 42);
+//  printf(   "11) Formatage multiple [-32o] : {%-32o}\n", 012345);
+//  my_printf("=>  Formatage multiple [-32o] : {%-32o}\n", 012345);
+  printf(   "12) Formatage multiple [-10+d] : {%+-10d}\n", 12345);
+  my_printf("=>  Formatage multiple [-10+d] : {%-10+d}\n", 12345);
+//  printf(   "13) Formatage compose [-5cP] : %-5cP\n", 42);
+//  my_printf("=>  Formatage compose [-5cP] : %-5cP\n", 42);
+//  printf(   "14) Formatage compose [-30sP]: %-30sP\n", str);
+//  my_printf("=> Formatage compose [-30sP]: %-30sP\n", str);
+//  printf(   "15) Formatage compose [-4SP] : as\\012ekP\n");
+//  my_printf("=>  Formatage compose [-4SP] : %-4SP\n", stre);
+//  printf(   "16) Formatage ultracompose [-6.3x] : {%-6.3x}\n", 0x12345);
+//  my_printf("=>  Formatage ultracompose [-6.3x] : {%-6.3x}\n", 0x12345);
+//  printf(   "17) Formatage ultracompose [#15.12b] : {101111101111110000001}\n");
+//  my_printf("=>  Formatage ultracompose [#15.12b] : {%#15.12b}\n", 1564545);
+//  printf(   "18) Formatage ultracompose [#-6.3d] : {%#-6.3d}\n", -2147483648);
+//  my_printf("=>  Formatage ultracompose [#-6.3d] : {%#-6.3d}\n", -2147483648);
+//  printf(   "19) Formatage long [p x lx] : {%p} {%x} {%lx}\n", 0x42424242, 0x42424242, 0x42424242);
+//  my_printf("=>  Formatage long [p x lx] : {%p} {%x} {%lx}\n", 0x42424242, 0x42424242, 0x42424242);
+  printf(   "20) Formatage pourcent [30%%] : {%30%}\n");
+  my_printf("=>  Formatage pourcent [30%%] : {%30%}\n");
+  printf(   "21) Formatage pourcent [-30pourcent] : {%-30%}\n");
+  my_printf("=>  Formatage pourcent [-30pourcent] : {%-30%}\n");
+//  ret[0] = printf(   "22) Test de la valeur de retour [-10+d s] : {%+-10d} {%s}\n", 12345, str);
+//  ret[1] = my_printf("=>  Test de la valeur de retour [-10+d s] : {%+-10d} {%s}\n", 12345, str);
+  printf(   "23) Verification de la valeur de retour [d] : {%d}\n", ret[0]);
+  my_printf("=>  Verification de la valeur de retour [d] : {%d}\n", ret[1]);
+  printf(   "24) Test de pile [c c] : {%c} {%c}\n", 0x4142434444434241);
+  my_printf("=>  Test de pile [c c] : {%c} {%c}\n", 0x4142434444434241);
 
-	flag.minus = 0;
-	ft_strcpy(dec.tabIndex, "cspdiuxX%-0.*");
-//	ft_strcpy(dec.tabFlag, "-0.*");
-  ft_funcpy(dec.tabFunction);
-  va_start(dec.ap, format);
-  dec.red = 0;
-  while(format[dec.red])
-  {
-		while(format[dec.red] != '%' && format[dec.red])
-    {
-			ft_putchar(format[dec.red]);
-      (dec.red)++;
-    }
-    if (format[dec.red] == '%')
-    {
-			while (is_flg(format[dec.red + 1]))
-			{
-				dec.tmpIndex = find_index(dec.tabIndex, format[dec.red + 1]);
-				dec.tabFunction[dec.tmpIndex] (&dec.ap, format, &dec.red, &flag);
-				dec.red++;
-			}
-			if (is_flg_conv(format[dec.red + 1]) == -1)
-				return (-1);
-			dec.tmpIndex = find_index(dec.tabIndex, format[dec.red + 1]);
-			dec.tabFunction[dec.tmpIndex] (&dec.ap, format, &dec.red, &flag);
-			(dec.red)+=2;
-    }
-  }
-  va_end(dec.ap);
-  return (dec.red);
-}
+  my_printf("Segmentation fault ;)\n");
 
-int main(void)
-{
-	//int	a = 5;
-
-	ft_printf("hello %-10d %%\n", 5);
-	printf("hello %-10d %%\n", 5);
-  return (0);
+  return(0);
 }

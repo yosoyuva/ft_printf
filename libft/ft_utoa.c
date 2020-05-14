@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*   ft_utoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ymehdi <ymehdi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/11 20:10:27 by ymehdi            #+#    #+#             */
-/*   Updated: 2020/05/08 19:11:56 by ymehdi           ###   ########.fr       */
+/*   Created: 2020/05/08 19:25:08 by ymehdi            #+#    #+#             */
+/*   Updated: 2020/05/08 19:29:17 by ymehdi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_nlength(int n)
+int		ft_nlength_u(unsigned int n)
 {
 	int	size;
 
@@ -29,15 +29,15 @@ int		ft_nlength(int n)
 	return (size);
 }
 
-char			*ft_itoa(int n)
+char			*ft_utoa(unsigned int n)
 {
 	int				i;
 	unsigned int	nb;
 	char			*s;
 
-	if (!(s = (char *)malloc(sizeof(char) * (ft_nlength(n) + 1))))
+	if (!(s = (char *)malloc(sizeof(char) * (ft_nlength_u(n) + 1))))
 		return (NULL);
-	i = ft_nlength(n);
+	i = ft_nlength_u(n);
 	s[i] = '\0';
 	if (n < 0)
 	{

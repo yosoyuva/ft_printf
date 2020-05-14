@@ -1,21 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   is_flg.c                                           :+:      :+:    :+:   */
+/*   ft_add_c_to_end_of_s.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ymehdi <ymehdi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/15 19:57:26 by ymehdi            #+#    #+#             */
-/*   Updated: 2020/02/15 19:57:52 by ymehdi           ###   ########.fr       */
+/*   Created: 2020/02/24 16:24:25 by ymehdi            #+#    #+#             */
+/*   Updated: 2020/05/14 15:21:00 by ymehdi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../inc/ft_printf.h"
 
-int	is_flg(char c)
+char	*ft_add_c_to_end_of_s(char *s, char c)
 {
-	if (c == '-' || c == '0' || c == '.' || c == '*')
-		return (1);
-	else
-		return (-1);
+  char  *str;
+
+  str = ft_strnew(ft_strlen(s) + 1);
+  ft_strcpy(str, s);
+  str[ft_strlen(s)] = c;
+  return (str);
 }
