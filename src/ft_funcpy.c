@@ -6,13 +6,13 @@
 /*   By: ymehdi <ymehdi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/25 12:06:27 by ymehdi            #+#    #+#             */
-/*   Updated: 2020/05/14 15:20:48 by ymehdi           ###   ########.fr       */
+/*   Updated: 2020/05/15 01:18:32 by ymehdi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/ft_printf.h"
 
-void    *ft_funcpy(char *(*dst[13]) (va_list *, const char *, int *, t_flag *))
+void    *ft_funcpy(char *(*dst[13]) (va_list *, t_flag *))
 {
 
         dst[0] = ft_printf_c;

@@ -6,14 +6,14 @@
 /*   By: ymehdi <ymehdi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/24 15:59:02 by ymehdi            #+#    #+#             */
-/*   Updated: 2020/05/14 15:19:10 by ymehdi           ###   ########.fr       */
+/*   Updated: 2020/05/15 01:20:36 by ymehdi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 # include <stdarg.h>
-# include "../libft/libft.h"
+# include "../lib/libft.h"
 # include <stdio.h>
 
 typedef struct  s_flag
@@ -27,7 +27,7 @@ typedef struct  s_declare
 {
   char    tabIndex[15];
   int     tmpIndex;
-  char    *(*tabFunction[15]) (va_list *, const char *, int *, t_flag *);
+  char    *(*tabFunction[15]) (va_list *, t_flag *);
 }               t_declare;
 
 int my_printf(const char *format, ...);
@@ -45,15 +45,15 @@ int   is_flag(char c);
 int   is_type(char c);
 int   ft_check(const char *str, int i);
 char	*ft_add_c_to_end_of_s(char *s, char c);
-char	*ft_printf_c(va_list *ap, const char *format, int *red, t_flag *flag);
-char	*ft_printf_d(va_list *ap, const char *format, int *red, t_flag *flag);
-char	*ft_printf_s(va_list *ap, const char *format, int *red, t_flag *flag);
-char	*ft_printf_p(va_list *ap, const char *format, int *red, t_flag *flag);
-char	*ft_printf_u(va_list *ap, const char *format, int *red, t_flag *flag);
-char	*ft_printf_i(va_list *ap, const char *format, int *red, t_flag *flag);
-char	*ft_printf_xm(va_list *ap, const char *format, int *red, t_flag *flag);
-char	*ft_printf_x(va_list *ap, const char *format, int *red, t_flag *flag);
-char	*ft_printf_percent(va_list *ap, const char *format, int *red, t_flag *flag);
-void    *ft_funcpy(char *(*dst[13]) (va_list *, const char *, int *, t_flag *));
-void    ft_get_star(const char *str, int *i, t_flag *flag, va_list *ap);
+char	*ft_printf_c(va_list *ap, t_flag *flag);
+char	*ft_printf_d(va_list *ap, t_flag *flag);
+char	*ft_printf_s(va_list *ap, t_flag *flag);
+char	*ft_printf_p(va_list *ap, t_flag *flag);
+char	*ft_printf_u(va_list *ap, t_flag *flag);
+char	*ft_printf_i(va_list *ap, t_flag *flag);
+char	*ft_printf_xm(va_list *ap, t_flag *flag);
+char	*ft_printf_x(va_list *ap, t_flag *flag);
+char	*ft_printf_percent(va_list *ap, t_flag *flag);
+void    *ft_funcpy(char *(*dst[13]) (va_list *, t_flag *));
+void    ft_get_star(int *i, t_flag *flag, va_list *ap);
 #endif

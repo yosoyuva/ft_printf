@@ -6,7 +6,7 @@
 /*   By: ymehdi <ymehdi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/27 14:07:46 by ymehdi            #+#    #+#             */
-/*   Updated: 2020/05/14 15:20:43 by ymehdi           ###   ########.fr       */
+/*   Updated: 2020/05/14 22:50:10 by ymehdi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void	ft_get_digit(const char *str, int *i, t_flag *flag)
   flag->digit = n /* - la taille de l'arguement */ ;
 }
 
-void    ft_get_star(const char *str, int *i, t_flag *flag, va_list *ap)
+void    ft_get_star(int *i, t_flag *flag, va_list *ap)
 {
   flag->digit = va_arg(*ap, long int);
   (*i)++;

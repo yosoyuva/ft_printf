@@ -6,7 +6,7 @@
 /*   By: ymehdi <ymehdi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/24 16:10:30 by ymehdi            #+#    #+#             */
-/*   Updated: 2020/05/14 15:20:34 by ymehdi           ###   ########.fr       */
+/*   Updated: 2020/05/14 22:52:19 by ymehdi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	ft_parse_flag(const char *str, int *i, t_flag *flag, va_list *ap)
   {
     if (str[*i] == '*')
     {
-      ft_get_star(str, i, flag, ap);
+      ft_get_star(i, flag, ap);
     }
     else if (ft_isdigit(str[*i]) && !(str[*i] == '0' && str[*i - 1] == '%'))
       ft_get_digit(str, i, flag);
@@ -70,7 +70,7 @@ int   ft_parsing(const char *str, va_list *list)
   result_s = ft_strnew(1);
   ft_strcpy(dec.tabIndex, "cspdiuxX%-0.*");
   ft_funcpy(dec.tabFunction);
-  while (str[i] && i < ft_strlen(str))
+  while (str[i] && i < (int)ft_strlen(str))
   {
     while (str[i] != '%' && str[i])
     {

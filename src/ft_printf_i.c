@@ -6,13 +6,13 @@
 /*   By: ymehdi <ymehdi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/13 06:01:19 by ymehdi            #+#    #+#             */
-/*   Updated: 2020/05/14 15:17:27 by ymehdi           ###   ########.fr       */
+/*   Updated: 2020/05/15 01:21:50 by ymehdi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/ft_printf.h"
 
-char	*ft_printf_i(va_list *ap, const char *format, int *red, t_flag *flag)
+char	*ft_printf_i(va_list *ap, t_flag *flag)
 {
 	/*int  i;
 	char	*s;
@@ -30,5 +30,7 @@ char	*ft_printf_i(va_list *ap, const char *format, int *red, t_flag *flag)
 		ft_putchar(' ');
 		flag->minus--;
 	}*/
+	if (flag->zero)
+  {}
 	return (ft_itoa(va_arg(*ap, int)));
 }
