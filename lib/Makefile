@@ -6,7 +6,7 @@
 #    By: ymehdi <ymehdi@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/07 13:00:55 by ymehdi            #+#    #+#              #
-#    Updated: 2020/05/25 09:53:51 by ymehdi           ###   ########.fr        #
+#    Updated: 2020/05/29 10:43:51 by ymehdi           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -60,6 +60,10 @@ SOURCES = ft_strjoin.c\
 			ft_itoa_hex.c\
 			ft_itoa_hex_m.c\
 			ft_itoa_hex_long.c\
+			ft_strnew_zero.c\
+			ft_strnew_space.c\
+			ft_putstr.c\
+			
 
 
 HEADERS = libft.h
