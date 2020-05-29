@@ -30,7 +30,7 @@ typedef struct  s_declare
   char    *(*tabFunction[15]) (va_list *, t_flag *);
 }               t_declare;
 
-int my_printf(const char *format, ...);
+int ft_printf(const char *format, ...);
 int find_index(char *tabIndex, char c);
 char  *ft_parse_inner(const char *str, int *i, va_list *list, char *result_s);
 void	ft_init_flag(t_flag *flag);

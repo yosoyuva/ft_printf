@@ -6,7 +6,7 @@
 /*   By: ymehdi <ymehdi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/06 13:44:31 by ymehdi            #+#    #+#             */
-/*   Updated: 2020/05/14 15:20:39 by ymehdi           ###   ########.fr       */
+/*   Updated: 2020/05/15 12:38:09 by ymehdi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char  *ft_get_type_and_flag(const char *str, int *i, t_flag *flag, va_list *list
 
   dec->tmpIndex = find_index(dec->tabIndex, str[*i]);
 //  min = ft_strnew_space(flag->digit);
-  s = dec->tabFunction[dec->tmpIndex] (list, str, i, flag);
+  s = dec->tabFunction[dec->tmpIndex] (list, flag);
   size_arg = ft_strlen(s);
   if(flag->digit > size_arg)
   {
