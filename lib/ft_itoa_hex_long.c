@@ -6,19 +6,19 @@
 /*   By: ymehdi <ymehdi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/12 17:18:34 by ymehdi            #+#    #+#             */
-/*   Updated: 2020/05/13 19:10:50 by ymehdi           ###   ########.fr       */
+/*   Updated: 2020/06/04 10:12:44 by ymehdi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_nlength_hex_long(long int n)
+int		ft_nlength_hex_long(unsigned int n)
 {
 	int	size;
 
 	size = 0;
-	if (n < 0)
-		size++;
+/*	if (n < 0)
+		size++;*/
 	if (n == 0)
 		return (1);
 	while (n)
@@ -29,23 +29,23 @@ int		ft_nlength_hex_long(long int n)
 	return (size);
 }
 
-char			*ft_itoa_hex_long(long int n)
+char			*ft_itoa_hex_long(unsigned int nb)
 {
 	int				i;
-	unsigned long int nb;
+//	unsigned long int nb;
 	char			*s;
 
-	if (!(s = (char *)malloc(sizeof(char) * (ft_nlength_hex_long(n) + 1))))
+	if (!(s = (char *)malloc(sizeof(char) * (ft_nlength_hex_long(nb) + 1))))
 		return (NULL);
-	i = ft_nlength_hex_long(n) - 1;
+	i = ft_nlength_hex_long(nb) - 1;
 	s[i] = '\0';
-	if (n < 0)
+	/*if (n < 0)
 	{
 		s[0] = '-';
 		nb = n * (-1);
 	}
 	else
-		nb = n;
+		nb = n;*/
 	while (i >= 0 && s[i] != '-')
 	{
 		if (nb % 16 < 10)

@@ -6,13 +6,13 @@
 /*   By: ymehdi <ymehdi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/08 23:51:19 by ymehdi            #+#    #+#             */
-/*   Updated: 2020/05/13 19:11:23 by ymehdi           ###   ########.fr       */
+/*   Updated: 2020/06/03 19:38:57 by ymehdi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_nlength_hex_m(int n)
+int		ft_nlength_hex_m(long int n)
 {
 	int	size;
 
@@ -29,10 +29,10 @@ int		ft_nlength_hex_m(int n)
 	return (size);
 }
 
-char			*ft_itoa_hex_m(int n)
+char			*ft_itoa_hex_m(long int n)
 {
 	int				i;
-	unsigned int nb;
+	unsigned long int nb;
 	char			*s;
 
 	if (!(s = (char *)malloc(sizeof(char) * (ft_nlength_hex_m(n) + 1))))

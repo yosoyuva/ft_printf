@@ -6,7 +6,7 @@
 /*   By: ymehdi <ymehdi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/13 06:01:54 by ymehdi            #+#    #+#             */
-/*   Updated: 2020/05/15 01:22:35 by ymehdi           ###   ########.fr       */
+/*   Updated: 2020/06/04 10:12:31 by ymehdi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,5 +16,5 @@ char	*ft_printf_x(va_list *ap, t_flag *flag)
 {
   if (flag->zero)
   {}
-  return(ft_itoa_hex(va_arg(*ap, int)));
+  return(ft_itoa_hex_long(va_arg(*ap, unsigned int)));
 }

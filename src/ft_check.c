@@ -6,7 +6,7 @@
 /*   By: ymehdi <ymehdi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/24 18:41:11 by ymehdi            #+#    #+#             */
-/*   Updated: 2020/05/14 15:20:54 by ymehdi           ###   ########.fr       */
+/*   Updated: 2020/06/08 17:11:33 by ymehdi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,14 @@ int   is_type(char c)
   return (0);
 }
 
-int   ft_check(const char *str, int i)
+int   ft_check(const char *str, int i, t_flag *flag)
 {
   while (is_flag(str[i]) && str[i] && !is_type(str[i]))
+  {
+    if (str[i] == '.')
+      flag->ignr_zero = 1;
     (i)++;
+  }
   if (str[i] && is_type(str[i]))
     return (1);
   return (0);

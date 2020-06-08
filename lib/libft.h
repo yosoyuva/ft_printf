@@ -6,7 +6,7 @@
 /*   By: ymehdi <ymehdi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/15 15:19:54 by ymehdi            #+#    #+#             */
-/*   Updated: 2020/05/12 17:20:02 by ymehdi           ###   ########.fr       */
+/*   Updated: 2020/06/08 19:25:25 by ymehdi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@
 # include <stdlib.h>
 
 # include <string.h>
+
+# include <stdio.h>
 
 typedef struct	s_list
 {
@@ -158,15 +160,23 @@ char			*ft_strnew_zero(size_t size);
 
 char	*ft_strnew_space(size_t size);
 
-int		ft_nlength_hex_m(int n);
+int		ft_nlength_hex_m(long int n);
 
-char			*ft_itoa_hex_m(int n);
+char			*ft_itoa_hex_m(long int n);
 
 char			*ft_itoa_hex(int n);
 
 int		ft_nlength_hex(int n);
 
-char			*ft_itoa_hex_long(long int n);
+char			*ft_itoa_hex_long(unsigned int n);
 
-int		ft_nlength_hex_long(long int n);
+int		ft_nlength_hex_long(unsigned int n);
+
+char	*ft_strndup(const char *s1, int size);
+
+int		ft_nlength_u(unsigned int n);
+
+char			*ft_itoa_u(unsigned int n);
+
+char	*ft_strcpy_wout_frst_c(char *dst, const char *src);
 #endif

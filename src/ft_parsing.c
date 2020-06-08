@@ -6,7 +6,7 @@
 /*   By: ymehdi <ymehdi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/24 16:10:30 by ymehdi            #+#    #+#             */
-/*   Updated: 2020/05/14 22:52:19 by ymehdi           ###   ########.fr       */
+/*   Updated: 2020/06/08 17:19:33 by ymehdi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,10 @@ int find_index(char *tabIndex, char c)
 
 void	ft_init_flag(t_flag *flag)
 {
-  flag->zero = 0;
-  flag->minus = 0;
-  flag->digit = 0;
+  flag->zero = -1;
+  flag->minus = -1;
+  flag->digit = -1;
+  flag->prc = -1;
 }
 
 void	ft_parse_flag(const char *str, int *i, t_flag *flag, va_list *ap)
@@ -41,15 +42,17 @@ void	ft_parse_flag(const char *str, int *i, t_flag *flag, va_list *ap)
   {
     if (str[*i] == '*')
     {
-      ft_get_star(i, flag, ap);
+      ft_get_star(i, flag, ap, str);
     }
-    else if (ft_isdigit(str[*i]) && !(str[*i] == '0' && str[*i - 1] == '%'))
+    else if (ft_isdigit(str[*i]) && (!(str[*i] == '0' && str[*i - 1] == '%') || flag->ignr_zero == 1))
       ft_get_digit(str, i, flag);
-    else if (str[*i] == '0' && str[*i - 1] == '%')
+    else if (str[*i] == '0' && str[*i - 1] == '%' && flag->ignr_zero == 0)
     {
       (*i)++;
       ft_get_zero(str, i, flag);
     }
+    else if (str[*i] == '.')
+      ft_get_prc(str, i, flag);
     else if (str[*i] == '-')
     {
       (*i)++;
@@ -70,6 +73,7 @@ int   ft_parsing(const char *str, va_list *list)
   result_s = ft_strnew(1);
   ft_strcpy(dec.tabIndex, "cspdiuxX%-0.*");
   ft_funcpy(dec.tabFunction);
+  flag.ignr_zero = 0;
   while (str[i] && i < (int)ft_strlen(str))
   {
     while (str[i] != '%' && str[i])
@@ -83,7 +87,7 @@ int   ft_parsing(const char *str, va_list *list)
     {
     //  printf("i = %d\n", i);
       i++;
-      if (ft_check(str, i))
+      if (ft_check(str, i, &flag))
       {
 /* On analyse ce qu'il ya entre '%' et et le flag type */
         /*dec.tmpIndex = find_index(dec.tabIndex, str[i]);
@@ -94,7 +98,7 @@ int   ft_parsing(const char *str, va_list *list)
         ft_parse_flag(str, &i, &flag, list);
       //  ft_write_zero(&flag, result_s);
         result_s = ft_get_type_and_flag(str, &i, &flag, list, result_s, &dec);
-
+        flag.ignr_zero = 0;
       }
       else
       {
