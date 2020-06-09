@@ -6,7 +6,7 @@
 /*   By: ymehdi <ymehdi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/27 14:07:46 by ymehdi            #+#    #+#             */
-/*   Updated: 2020/06/08 18:44:33 by ymehdi           ###   ########.fr       */
+/*   Updated: 2020/06/09 17:19:51 by ymehdi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,8 @@ void	ft_get_digit(const char *str, int *i, t_flag *flag)
   int n;
 
   n = 0;
+  if (str[*i] == '0')
+    flag->zero_was_ignrd = 1;
   while(ft_isdigit(str[*i]))
   {
     n = n * 10 + (str[*i] - 48);
@@ -66,7 +68,7 @@ void    ft_get_star(int *i, t_flag *flag, va_list *ap, const char *str)
     else
       flag->minus = arg;
   }
-  else if (str[*i - 1] == '0' || flag->zero > -1)
+  else if ((str[*i - 1] == '0' || flag->zero > -1) && flag->ignr_zero == 0)
     flag->zero = arg;
   else
     flag->digit = arg;

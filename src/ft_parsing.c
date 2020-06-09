@@ -6,7 +6,7 @@
 /*   By: ymehdi <ymehdi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/24 16:10:30 by ymehdi            #+#    #+#             */
-/*   Updated: 2020/06/08 17:19:33 by ymehdi           ###   ########.fr       */
+/*   Updated: 2020/06/09 17:20:48 by ymehdi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ void	ft_init_flag(t_flag *flag)
   flag->minus = -1;
   flag->digit = -1;
   flag->prc = -1;
+  flag->zero_was_ignrd = 0;
 }
 
 void	ft_parse_flag(const char *str, int *i, t_flag *flag, va_list *ap)

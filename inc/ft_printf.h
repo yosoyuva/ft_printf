@@ -6,7 +6,7 @@
 /*   By: ymehdi <ymehdi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/24 15:59:02 by ymehdi            #+#    #+#             */
-/*   Updated: 2020/06/08 16:57:55 by ymehdi           ###   ########.fr       */
+/*   Updated: 2020/06/09 17:20:07 by ymehdi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ typedef struct  s_flag
   int digit;
   int prc;
   int ignr_zero;
+  int zero_was_ignrd;
 }               t_flag;
 
 typedef struct  s_declare
