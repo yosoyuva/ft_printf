@@ -6,8 +6,8 @@
 
 int main(void)
 {
-/*	int		j = -12;
-	ft_printf(" --- Return : %d\n", ft_printf("%u, %x, %X", j, j, j));
+	int		j = 0;
+/*	ft_printf(" --- Return : %d\n", ft_printf("%u, %x, %X", j, j, j));
 	printf("--- return = %d\n", printf("printf :x = %.0x, X = %.0X, u = %.0u, d = %.0d, d3 = %.0d, 5.d = %5.d, 1d = %1d, 02d = %02d", j,j,j, 0, 3, 0, 3, 3) + 3);
 	printf("--- return = %d\n", ft_printf("ft_printf :x = %.0x, X = %.0X, u = %.0u, d = %.0d, d3 = %.0d, 5.d = %5.d, 1d =%1d, 02d = %02d", j,j,j, 0, 3, 0, 3, 3));
 	printf("return :%d\n", ft_printf("ft%", "test"));
@@ -15,9 +15,9 @@ int main(void)
 	printf("printf % %");*/
 /*	printf("--- return = %d\n", printf("printf :0*d = %0*d", 4, -12) + 3);
 	printf("--- return = %d\n", ft_printf("ft_printf :0*d = %0*d", 4, -12));*/
-	printf("--- return = %d\n", printf("printf :.*s = %.*s", 10, "de") + 3);
-	printf("--- return = %d\n", ft_printf("ft_printf :.*s = %.*s", 10, "de"));
-/*	printf("--- return = %d\n", printf("printf :.*d = %.*d", -5, 75) + 3);
-	printf("--- return = %d\n", ft_printf("ft_printf :.*d = %.*d", -5, 75));*/
+	printf("--- return = %d\n", printf("printf :.*x = %.*x", 0, j) + 3);
+	printf("--- return = %d\n", ft_printf("ft_printf :.*x = %.*x", 0, j));
+	//printf("--- return = %d\n", printf("%x", -12));
+	//printf("--- return = %d\n", ft_printf("%x", -12));
 	return 0;
 }

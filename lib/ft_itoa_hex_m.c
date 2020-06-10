@@ -6,7 +6,7 @@
 /*   By: ymehdi <ymehdi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/08 23:51:19 by ymehdi            #+#    #+#             */
-/*   Updated: 2020/06/03 19:38:57 by ymehdi           ###   ########.fr       */
+/*   Updated: 2020/06/10 20:21:37 by ymehdi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ char			*ft_itoa_hex_m(long int n)
 	unsigned long int nb;
 	char			*s;
 
-	if (!(s = (char *)malloc(sizeof(char) * (ft_nlength_hex_m(n) + 1))))
+	if (!(s = (char *)malloc(sizeof(char) * (ft_nlength_hex_m(n)))))
 		return (NULL);
 	i = ft_nlength_hex_m(n) - 1;
 	s[i] = '\0';
