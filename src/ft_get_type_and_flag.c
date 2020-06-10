@@ -6,7 +6,7 @@
 /*   By: ymehdi <ymehdi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/06 13:44:31 by ymehdi            #+#    #+#             */
-/*   Updated: 2020/06/10 20:18:02 by ymehdi           ###   ########.fr       */
+/*   Updated: 2020/06/10 20:31:02 by ymehdi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ char  *ft_get_type_and_flag(const char *str, int *i, t_flag *flag, va_list *list
   }
   else if (flag->prc < size_arg && dec->tmpIndex == 1 && flag->prc > -1)
       s = ft_strndup(s, flag->prc);
-  else if (flag->prc == 0 && dec->tmpIndex == 3 && s[0] == '0')
+  else if (flag->prc == 0 && (dec->tmpIndex < 8 && dec->tmpIndex > 2) && s[0] == '0')
   {
     ft_memset(s, 0, size_arg);
     size_arg = 0;
