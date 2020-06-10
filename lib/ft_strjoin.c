@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ymehdi <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: ymehdi <ymehdi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/11 14:10:33 by ymehdi            #+#    #+#             */
-/*   Updated: 2019/04/14 12:21:55 by ymehdi           ###   ########.fr       */
+/*   Updated: 2020/06/10 12:39:21 by ymehdi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,6 @@ char	*ft_strjoin(char const *s1, char const *s2)
 		return (NULL);
 	str = ft_strcpy(str, s1);
 	str = ft_strcat(str, s2);
+//	printf("strjoin = %s\n", str);
 	return (str);
 }

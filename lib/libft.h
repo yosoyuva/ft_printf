@@ -6,7 +6,7 @@
 /*   By: ymehdi <ymehdi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/15 15:19:54 by ymehdi            #+#    #+#             */
-/*   Updated: 2020/06/08 19:25:25 by ymehdi           ###   ########.fr       */
+/*   Updated: 2020/06/10 12:38:09 by ymehdi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -178,5 +178,7 @@ int		ft_nlength_u(unsigned int n);
 
 char			*ft_itoa_u(unsigned int n);
 
-char	*ft_strcpy_wout_frst_c(char *dst, const char *src);
+char	*ft_strcpy_wout_frst_c(/*char *dst, */const char *src);
+
+char  *ft_strcpy_from_pos(char *dst, const char *src, int pos);
 #endif
