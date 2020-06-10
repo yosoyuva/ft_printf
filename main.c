@@ -15,8 +15,8 @@ int main(void)
 	printf("printf % %");*/
 /*	printf("--- return = %d\n", printf("printf :0*d = %0*d", 4, -12) + 3);
 	printf("--- return = %d\n", ft_printf("ft_printf :0*d = %0*d", 4, -12));*/
-	printf("--- return = %d\n", printf("printf :.*s = %.*s", 2, "0") + 3);
-	printf("--- return = %d\n", ft_printf("ft_printf :.*s = %.*s", 2, "0"));
+	printf("--- return = %d\n", printf("printf :.*s = %.*s", 10, "de") + 3);
+	printf("--- return = %d\n", ft_printf("ft_printf :.*s = %.*s", 10, "de"));
 /*	printf("--- return = %d\n", printf("printf :.*d = %.*d", -5, 75) + 3);
 	printf("--- return = %d\n", ft_printf("ft_printf :.*d = %.*d", -5, 75));*/
 	return 0;

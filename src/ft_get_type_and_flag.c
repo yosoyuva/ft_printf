@@ -6,7 +6,7 @@
 /*   By: ymehdi <ymehdi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/06 13:44:31 by ymehdi            #+#    #+#             */
-/*   Updated: 2020/06/10 15:10:33 by ymehdi           ###   ########.fr       */
+/*   Updated: 2020/06/10 15:21:31 by ymehdi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ char  *ft_get_type_and_flag(const char *str, int *i, t_flag *flag, va_list *list
   s = dec->tabFunction[dec->tmpIndex] (list, flag);
   size_arg = ft_strlen(s);
 //  printf("prc = %d, arg = %d, digit = %d, minus = %d, s = %s, zero = %d\n", flag->prc, size_arg, flag->digit, flag->minus, s, flag->zero);
-  if(flag->prc > size_arg || (flag->prc == size_arg && s[0] == '-'  && (dec->tmpIndex < 8 && dec->tmpIndex > 2)))
+  if((flag->prc > size_arg || (flag->prc == size_arg && s[0] == '-'))  && (dec->tmpIndex < 8 && dec->tmpIndex > 2))
   {
     if (dec->tmpIndex == 3 && s[0] == '0')
       ft_memset(s, 0, size_arg);
