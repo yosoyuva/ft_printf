@@ -6,7 +6,7 @@
 /*   By: ymehdi <ymehdi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/12 17:18:34 by ymehdi            #+#    #+#             */
-/*   Updated: 2020/06/10 20:20:01 by ymehdi           ###   ########.fr       */
+/*   Updated: 2020/06/10 21:44:12 by ymehdi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,7 @@ char			*ft_itoa_hex_long(unsigned int nb)
 		}
 		i--;
 	}
+//	printf("s = %s\n", s);
 	return (s);
 }
 /*
