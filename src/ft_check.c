@@ -12,30 +12,30 @@
 
 #include "../inc/ft_printf.h"
 
-int   is_flag(char c)
+int	is_flag(char c)
 {
-  if (c == '-' || c == '.' || c == '0' || c == '*' || ft_isdigit(c))
-    return (1);
-  return (0);
+	if (c == '-' || c == '.' || c == '0' || c == '*' || ft_isdigit(c))
+		return (1);
+	return (0);
 }
 
-int   is_type(char c)
+int	is_type(char c)
 {
-  if (c == 'c' || c == 's' || c == 'p' || c == 'd' || c == 'i' \
-		|| c == 'u' || c == 'x' || c == 'X' || c == '%')
-    return (1);
-  return (0);
+	if (c == 'c' || c == 's' || c == 'p' || c == 'd' || c == 'i' \
+			|| c == 'u' || c == 'x' || c == 'X' || c == '%')
+		return (1);
+	return (0);
 }
 
-int   ft_check(const char *str, int i, t_flag *flag)
+int	ft_check(const char *str, int i, t_flag *flag)
 {
-  while (is_flag(str[i]) && str[i] && !is_type(str[i]))
-  {
-    if (str[i] == '.')
-      flag->ignr_zero = 1;
-    (i)++;
-  }
-  if (str[i] && is_type(str[i]))
-    return (1);
-  return (0);
+	while (is_flag(str[i]) && str[i] && !is_type(str[i]))
+	{
+		if (str[i] == '.')
+			flag->ignr_zero = 1;
+		(i)++;
+	}
+	if (str[i] && is_type(str[i]))
+		return (1);
+	return (0);
 }
