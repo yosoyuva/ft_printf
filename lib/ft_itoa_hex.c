@@ -29,16 +29,14 @@ int		ft_nlength_hex(int n)
 	return (size);
 }
 
-char			*ft_itoa_hex(int n)
+char	*ft_itoa_hex(int n)
 {
 	int				i;
-	unsigned int nb;
+	unsigned int	nb;
 	char			*s;
 
-	if (!(s = (char *)malloc(sizeof(char) * (ft_nlength_hex(n) + 1))))
-		return (NULL);
+	s = ft_strnew(ft_nlength_hex(n) + 1);
 	i = ft_nlength_hex(n) - 1;
-	s[i] = '\0';
 	if (n < 0)
 	{
 		s[0] = '-';
@@ -49,15 +47,10 @@ char			*ft_itoa_hex(int n)
 	while (i >= 0 && s[i] != '-')
 	{
 		if (nb % 16 < 10)
-		{
 			s[i] = (nb % 16) % 16 + 48;
-			nb = nb / 16;
-		}
 		else
-		{
 			s[i] = nb % 10 + 'a';
-			nb = nb / 16;
-		}
+		nb = nb / 16;
 		i--;
 	}
 	return (s);

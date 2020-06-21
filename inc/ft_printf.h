@@ -6,7 +6,7 @@
 /*   By: ymehdi <ymehdi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/24 15:59:02 by ymehdi            #+#    #+#             */
-/*   Updated: 2020/06/09 17:20:07 by ymehdi           ###   ########.fr       */
+/*   Updated: 2020/06/18 18:52:01 by ymehdi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,13 +28,13 @@ typedef struct  s_flag
 
 typedef struct  s_declare
 {
-  char    tabIndex[15];
-  int     tmpIndex;
-  char    *(*tabFunction[15]) (va_list *, t_flag *);
+  char    tab_index[15];
+  int     tmp_index;
+  char    *(*tab_function[15]) (va_list *, t_flag *);
 }               t_declare;
 
 int ft_printf(const char *format, ...);
-int find_index(char *tabIndex, char c);
+int find_index(char *tab_index, char c);
 char  *ft_parse_inner(const char *str, int *i, va_list *list, char *result_s);
 void	ft_init_flag(t_flag *flag);
 void	ft_parse_flag(const char *str, int *i, t_flag *flag, va_list *ap);

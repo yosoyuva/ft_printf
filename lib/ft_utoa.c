@@ -29,7 +29,7 @@ int		ft_nlength_u(unsigned int n)
 	return (size);
 }
 
-char			*ft_utoa(unsigned int n)
+char	*ft_utoa(unsigned int n)
 {
 	int				i;
 	unsigned int	nb;

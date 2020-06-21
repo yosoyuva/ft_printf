@@ -6,7 +6,7 @@
 /*   By: ymehdi <ymehdi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/13 06:01:19 by ymehdi            #+#    #+#             */
-/*   Updated: 2020/05/15 01:21:50 by ymehdi           ###   ########.fr       */
+/*   Updated: 2020/06/20 10:25:11 by ymehdi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 char	*ft_printf_i(va_list *ap, t_flag *flag)
 {
+	char *str;
 	/*int  i;
 	char	*s;
 
@@ -32,5 +33,7 @@ char	*ft_printf_i(va_list *ap, t_flag *flag)
 	}*/
 	if (flag->zero)
   {}
+	str = ft_strnew(1);
+	str = ft_strjoin_free_first(str, ft_itoa(va_arg(*ap, int)));
 	return (ft_itoa(va_arg(*ap, int)));
 }

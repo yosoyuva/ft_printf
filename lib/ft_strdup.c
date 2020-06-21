@@ -6,7 +6,7 @@
 /*   By: ymehdi <ymehdi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/06 16:57:35 by ymehdi            #+#    #+#             */
-/*   Updated: 2020/06/02 14:01:54 by ymehdi           ###   ########.fr       */
+/*   Updated: 2020/06/20 19:06:37 by ymehdi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,26 @@ char	*ft_strdup(const char *s1)
 }
 
 char	*ft_strndup(const char *s1, int size)
+{
+	char	*dest;
+	int		i;
+
+	i = 0;
+	while (i < size && s1[i])
+		i++;
+	if ((dest = (char *)malloc(sizeof(char) * (i + 1))) == NULL)
+		return (NULL);
+	i = 0;
+	while (i < size && s1[i])
+	{
+		dest[i] = s1[i];
+		i++;
+	}
+	dest[i] = '\0';
+	return (dest);
+}
+
+char	*ft_strndup_free(const char *s1, int size)
 {
 	char	*dest;
 	int		i;

@@ -6,7 +6,7 @@
 /*   By: ymehdi <ymehdi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/06 17:04:42 by ymehdi            #+#    #+#             */
-/*   Updated: 2020/06/10 12:39:17 by ymehdi           ###   ########.fr       */
+/*   Updated: 2020/06/20 19:57:17 by ymehdi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 char	*ft_strcpy(char *dst, const char *src)
 {
-	int	pos;
+	int		pos;
 
 	pos = 0;
 	while (src[pos] != '\0')
@@ -27,13 +27,13 @@ char	*ft_strcpy(char *dst, const char *src)
 	return (dst);
 }
 
-char	*ft_strcpy_wout_frst_c(const char *src)
+char	*ft_strcpy_wout_frst_c(char *src)
 {
-	int	pos;
-	char *dst;
+	int		pos;
+	char	*dst;
 
 	pos = 0;
-	if (!(dst = malloc(sizeof(char) * (ft_strlen(src) + 2))))
+	if (!(dst = (char *)malloc(sizeof(char) * (ft_strlen(src) + 2))))
 		return (NULL);
 	dst[ft_strlen(src) + 2] = '\0';
 	ft_strcpy(dst, src);
@@ -44,27 +44,44 @@ char	*ft_strcpy_wout_frst_c(const char *src)
 	}
 	if (src[pos + 1] == '\0')
 		dst[pos] = '\0';
-//	printf("dst = %s\n", dst);
+	free(src);
 	return (dst);
 }
 
-char  *ft_strcpy_from_pos(char *dst, const char *src, int pos)
+char	*ft_strcpy_from_pos(char *dst, const char *src, int pos)
 {
-	int i;
+	int		i;
+	char	*s;
 
+	s = ft_strnew(ft_strlen(dst));
 	i = 0;
-//	printf("src = %s\n", src);
 	while (src[i] != '\0')
 	{
-		dst[i + pos] = src[i];
+		s[i + pos] = src[i];
 		i++;
 	}
-//	printf("2\n");
 	if (src[i] == '\0')
-		dst[i + pos] = '\0';
-//	printf("3\n");
-	//printf("ds = %s\n", ds);
-//	free(ds);
-//	printf("dst = %s\n", dst);
+		s[i + pos] = '\0';
+	free(dst);
+	return (s);
+}
+
+char	*ft_strcpy_wout_frst_c_nofree(char *src)
+{
+	int		pos;
+	char	*dst;
+
+	pos = 0;
+	if (!(dst = (char *)malloc(sizeof(char) * (ft_strlen(src) + 2))))
+		return (NULL);
+	dst[ft_strlen(src) + 2] = '\0';
+	ft_strcpy(dst, src);
+	while (src[pos + 1] != '\0')
+	{
+		dst[pos] = src[pos + 1];
+		pos++;
+	}
+	if (src[pos + 1] == '\0')
+		dst[pos] = '\0';
 	return (dst);
 }

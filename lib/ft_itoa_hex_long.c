@@ -17,8 +17,6 @@ int		ft_nlength_hex_long(unsigned int n)
 	int	size;
 
 	size = 0;
-/*	if (n < 0)
-		size++;*/
 	if (n == 0)
 		return (1);
 	while (n)
@@ -29,24 +27,15 @@ int		ft_nlength_hex_long(unsigned int n)
 	return (size);
 }
 
-char			*ft_itoa_hex_long(unsigned int nb)
+char	*ft_itoa_hex_long(unsigned int nb)
 {
 	int				i;
-//	unsigned long int nb;
 	char			*s;
 
 	if (!(s = (char *)malloc(sizeof(char) * (ft_nlength_hex_long(nb)))))
 		return (NULL);
 	i = ft_nlength_hex_long(nb) - 1;
-//	printf("i = %d\n", i);
 	s[i] = '\0';
-	/*if (n < 0)
-	{
-		s[0] = '-';
-		nb = n * (-1);
-	}
-	else
-		nb = n;*/
 	while (i >= 0 && s[i] != '-')
 	{
 		if (nb % 16 < 10)
@@ -61,17 +50,5 @@ char			*ft_itoa_hex_long(unsigned int nb)
 		}
 		i--;
 	}
-//	printf("s = %s\n", s);
 	return (s);
 }
-/*
-int main()
-{
-  int a = 1;
-  printf("%s\n", ft_itoa_hex_long(140721173330004));
-  printf("%lx\n", 140721173330004);
-//  printf("%li\n", &a);
-
-}*/
-//140721173330004
-//
