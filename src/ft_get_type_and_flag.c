@@ -6,22 +6,18 @@
 /*   By: ymehdi <ymehdi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/06 13:44:31 by ymehdi            #+#    #+#             */
-/*   Updated: 2020/06/20 19:58:13 by ymehdi           ###   ########.fr       */
+/*   Updated: 2020/06/30 21:46:59 by ymehdi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/ft_printf.h"
 
-char  *ft_get_type_and_flag(const char *str, int *i, t_flag *flag, va_list *list, char *result_s, t_declare *dec)
+char  *ft_get_type_and_flag(t_flag *flag, va_list *list, char *result_s, t_declare *dec)
 {
   char  *s;
   char  *min;
   int   size_arg;
 
-  dec->tmp_index = find_index(dec->tab_index, str[*i]);
-//  min = ft_strnew(1);
-//  min = ft_strnew_space(flag->digit);
-/* Au debut c'etait :s = dec->tab_function[dec->tmp_index] (list, flag); */
   s = ft_strnew(1);
 //  s = dec->tab_function[dec->tmp_index] (list, flag);
   s = ft_strjoin_free(s, dec->tab_function[dec->tmp_index] (list, flag));
@@ -39,16 +35,10 @@ char  *ft_get_type_and_flag(const char *str, int *i, t_flag *flag, va_list *list
     }
     else
       min = ft_strnew_zero(flag->prc - ft_strlen(s) - 1);
-  //  printf("s de prc = %s\n", s);
-  /*  s = ft_strjoin(min, s); */
-  //  printf("min de prc = %s\n", min);
-//    size_arg = ft_strlen(min) + size_arg;
     if (s[0] == '-' && (dec->tmp_index < 8 && dec->tmp_index > 2))
       s = ft_strcpy_from_pos(s, ft_strjoin(min, ft_strcpy_wout_frst_c_nofree(s)), 1);
-  //    ft_strcpy_from_pos(ft_strjoin(min, ft_strcpy_wout_frst_c(s, s)), 1);
     else
        s = ft_strjoin_free_last(min, s);
-//    printf("s prc = %s\n", s);
   }
   else if (flag->prc < size_arg && dec->tmp_index == 1 && flag->prc > -1)
       s = ft_strndup_free(s, flag->prc);
@@ -59,7 +49,6 @@ char  *ft_get_type_and_flag(const char *str, int *i, t_flag *flag, va_list *list
   }
   else if(flag->zero > size_arg)
   {
-//    printf("zero\n");
     if (s[0] == '-' && (dec->tmp_index < 8 && dec->tmp_index > 2))
     {
         result_s = ft_add_c_to_end_of_s(result_s, '-');
@@ -69,9 +58,7 @@ char  *ft_get_type_and_flag(const char *str, int *i, t_flag *flag, va_list *list
     else
       min = ft_strnew_zero(flag->zero - size_arg - 1);
     s = ft_strjoin_free_last(min, s);
-  //  printf("s de zero = %s\n", s);
   }
-//  printf("prc = %d, arg = %d, digit = %d, minus = %d, s = %s\n", flag->prc, size_arg, flag->digit, flag->minus, s);
   if(flag->digit > (int)ft_strlen(s))
   {
   //  printf("digit\n");
@@ -95,14 +82,10 @@ char  *ft_get_type_and_flag(const char *str, int *i, t_flag *flag, va_list *list
       else
         min = ft_strnew_space(flag->digit - size_arg - 1);
       result_s = ft_strjoin_free_first(result_s, min);
-  //    printf("min de digit = %s\n", min);
-  //    printf("s de prc = %s\n", s);
   }
   result_s = ft_strjoin_free_first(result_s, s);
-//  printf("prc = %d, arg = %d, digit = %d, minus = %d, s = %s\n", flag->prc, size_arg, flag->digit, flag->minus, s);
   if (flag->minus > (int)ft_strlen(s) || (flag->minus == (int)ft_strlen(s) && s[0] == 0 && flag->minus > 0))
   {
-    //printf("min********\n");
     if (flag->minus == (int)ft_strlen(s) && s[0] == 0)
       min = ft_strnew_space(flag->minus - ft_strlen(s));
     else

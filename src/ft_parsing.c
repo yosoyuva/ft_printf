@@ -6,7 +6,7 @@
 /*   By: ymehdi <ymehdi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/24 16:10:30 by ymehdi            #+#    #+#             */
-/*   Updated: 2020/06/19 22:08:48 by ymehdi           ###   ########.fr       */
+/*   Updated: 2020/06/30 21:48:39 by ymehdi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,61 +37,28 @@ void	ft_init_flag(t_flag *flag)
 	flag->zero_was_ignrd = 0;
 }
 
-void	ft_parse_flag(const char *str, int *i, t_flag *flag, va_list *ap)
+int	ft_parsing(const char *str, va_list *list, t_declare *dec, t_flag *flag)
 {
-	while (str[*i] && is_flag(str[*i]))
-	{
-		if (str[*i] == '*')
-		{
-			ft_get_star(i, flag, ap, str);
-		}
-		else if (ft_isdigit(str[*i]) && (!(str[*i] == '0' \
-			&& str[*i - 1] == '%') || flag->ignr_zero == 1))
-			ft_get_digit(str, i, flag);
-		else if (str[*i] == '0' && str[*i - 1] == '%' && flag->ignr_zero == 0)
-		{
-			(*i)++;
-			ft_get_zero(str, i, flag);
-		}
-		else if (str[*i] == '.')
-			ft_get_prc(str, i, flag);
-		else if (str[*i] == '-')
-		{
-			(*i)++;
-			ft_init_flag(flag);
-			ft_get_minus(str, i, flag);
-		}
-	}
-}
+	char    *result_s;
 
-int	ft_parsing(const char *str, va_list *list)
-{
-	char		*result_s;
-	int		i;
-	t_declare	dec;
-	t_flag		flag;
-
-	i = 0;
 	result_s = ft_strnew(1);
-	ft_strcpy(dec.tab_index, "cspdiuxX%-0.*");
-	ft_funcpy(dec.tab_function);
-	flag.ignr_zero = 0;
-	while (str[i] && i < (int)ft_strlen(str))
+	dec->i = 0;
+	ft_parse_pfunction(flag, dec);
+	while (str[dec->i] && dec->i < (int)ft_strlen(str))
 	{
-		while (str[i] != '%' && str[i])
+		while (str[dec->i] != '%' && str[dec->i])
 		{
-			result_s = ft_add_c_to_end_of_s(result_s, str[i]);
-			i++;
+			result_s = ft_add_c_to_end_of_s(result_s, str[dec->i]);
+			(dec->i)++;
 		}
-		if (str[i] && str[i] == '%')
+		if (str[dec->i] && str[dec->i] == '%')
 		{
-			i++;
-			if (ft_check(str, i, &flag))
+			(dec->i)++;
+			if (ft_check(str, dec, flag))
 			{
-				ft_init_flag(&flag);
-				ft_parse_flag(str, &i, &flag, list);
-				result_s = ft_get_type_and_flag(str, &i, &flag, list, result_s, &dec);
-				flag.ignr_zero = 0;
+				ft_parse_after_check(flag, dec, str, list);
+				dec->tmp_index = find_index(dec->tab_index, str[dec->i]);
+				ft_parse_after_check_two(flag, dec, list, result_s);
 			}
 			else
 			{
@@ -100,12 +67,12 @@ int	ft_parsing(const char *str, va_list *list)
 				return (-1);
 			}
 		}
-		i++;
+		(dec->i)++;
 	}
 	/* On print le resultat finale */
 	ft_putstr(result_s);
-	i = ft_strlen(result_s);
+	dec->i = ft_strlen(result_s);
 	free(result_s);
 	//return (ft_strlen(result_s));
-	return (i);
+	return (dec->i);
 }
