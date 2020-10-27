@@ -6,7 +6,7 @@
 #    By: ymehdi <ymehdi@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/05/14 15:27:25 by ymehdi            #+#    #+#              #
-#    Updated: 2020/06/19 12:51:41 by ymehdi           ###   ########.fr        #
+#    Updated: 2020/10/27 16:40:47 by ymehdi           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,6 +38,7 @@ CFILE =	ft_add_c_to_end_of_s.c\
 			ft_printf.c\
 			ft_printf_x.c\
 			ft_printf_xm.c\
+			ft_aux_parsing.c\
 
 CFIND =		$(CFILE:%=$(SRC_DIR)%)
 
