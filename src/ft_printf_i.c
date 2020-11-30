@@ -12,7 +12,7 @@
 
 #include "../inc/ft_printf.h"
 
-char	*ft_printf_i(va_list *ap, t_flag *flag)
+char	*ft_printf_i(t_fpt *var)
 {
 	/*int  i;
 	char	*s;
@@ -30,7 +30,7 @@ char	*ft_printf_i(va_list *ap, t_flag *flag)
 		ft_putchar(' ');
 		flag->minus--;
 	}*/
-	if (flag->zero)
+	if (var->zero)
   {}
-	return (ft_itoa(va_arg(*ap, int)));
+	return (ft_itoa(va_arg(var->list, int)));
 }

@@ -181,4 +181,18 @@ char			*ft_itoa_u(unsigned int n);
 char	*ft_strcpy_wout_frst_c(/*char *dst, */const char *src);
 
 char  *ft_strcpy_from_pos(char *dst, const char *src, int pos);
+
+char	*ft_strjoin_fo(char *s1, char const *s2);
+
+char	*ft_strjoin_ft(char const *s1, char *s2);
+
+char  *ft_strcpy_from_pos_f(char *dst, char *src, int pos);
+
+char	*ft_strndup_fo(char *s1, int size);
+
+char	*ft_strcpy_wout_frst_c_f(char *src);
+
+char	*ft_strnew_space_f(char *str, size_t size);
+
+char	*ft_strnew_zero_f(char *str, size_t size);
 #endif

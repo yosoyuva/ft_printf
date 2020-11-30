@@ -15,9 +15,14 @@
 char	*ft_add_c_to_end_of_s(char *s, char c)
 {
 	char	*str;
+	int		size;
 
-	str = ft_strnew(ft_strlen(s) + 1);
+	if (s == NULL)
+		return (NULL);
+	size = ft_strlen(s);
+	str = ft_strnew(size + 1);
 	ft_strcpy(str, s);
-	str[ft_strlen(s)] = c;
+	free(s);
+	str[size] = c;
 	return (str);
 }

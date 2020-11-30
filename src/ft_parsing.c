@@ -12,104 +12,98 @@
 
 #include "../inc/ft_printf.h"
 
-int	find_index(char *tabIndex, char c)
+int		find_index(char *tabindex, char c)
 {
 	int i;
 
 	i = 0;
-	while (tabIndex[i] != 0)
+	while (tabindex[i] != 0)
 	{
-		if (tabIndex[i] == c)
+		if (tabindex[i] == c)
 			return (i);
-		else if (ft_isdigit(tabIndex[i]))
+		else if (ft_isdigit(tabindex[i]))
 			return (14);
 		i++;
 	}
 	return (-1);
 }
 
-void	ft_init_flag(t_flag *flag)
+void	ft_init_var(t_fpt *var)
 {
-	flag->zero = -1;
-	flag->minus = -1;
-	flag->digit = -1;
-	flag->prc = -1;
-	flag->zero_was_ignrd = 0;
+	var->zero = -1;
+	var->minus = -1;
+	var->digit = -1;
+	var->prc = -1;
+	var->zero_was_ignrd = 0;
+	var->result = 0;
+	var->result_s = ft_strnew(1);
+	var->ignr_zero = 0;
+	var->pos = 0;
 }
 
-void	ft_parse_flag(const char *str, int *i, t_flag *flag, va_list *ap)
+void	ft_init_flag(t_fpt *var)
 {
-	while (str[*i] && is_flag(str[*i]))
+	var->zero = -1;
+	var->minus = -1;
+	var->digit = -1;
+	var->prc = -1;
+	var->zero_was_ignrd = 0;
+}
+
+void	ft_parse_flag(const char *str, t_fpt *var)
+{
+	ft_init_flag(var);
+	while (str[var->pos] && is_flag(str[var->pos]))
 	{
-		if (str[*i] == '*')
+		if (str[var->pos] == '*')
 		{
-			ft_get_star(i, flag, ap, str);
+			ft_get_star(var, str);
 		}
-		else if (ft_isdigit(str[*i]) && (!(str[*i] == '0' && str[*i - 1] == '%') || flag->ignr_zero == 1))
-			ft_get_digit(str, i, flag);
-		else if (str[*i] == '0' && str[*i - 1] == '%' && flag->ignr_zero == 0)
+		else if (ft_isdigit(str[var->pos]) && (!(str[var->pos] == '0' && \
+		str[var->pos - 1] == '%') || var->ignr_zero == 1))
+			ft_get_digit(str, var);
+		else if (str[var->pos] == '0' && str[var->pos - 1] == '%' && \
+		var->ignr_zero == 0)
 		{
-			(*i)++;
-			ft_get_zero(str, i, flag);
+			(var->pos)++;
+			ft_get_zero(str, var);
 		}
-		else if (str[*i] == '.')
-			ft_get_prc(str, i, flag);
-		else if (str[*i] == '-')
+		else if (str[var->pos] == '.')
+			ft_get_prc(str, var);
+		else if (str[var->pos] == '-')
 		{
-			(*i)++;
-			ft_init_flag(flag);
-			ft_get_minus(str, i, flag);
+			(var->pos)++;
+			ft_init_flag(var);
+			ft_get_minus(str, var);
 		}
 	}
 }
 
-int	ft_parsing(const char *str, va_list *list)
+int		ft_parsing(const char *str, t_fpt *var, t_dec *dec)
 {
-	char      *result_s;
-	int       i;
-	t_declare dec;
-	t_flag    flag;
-
-	i = 0;
-	result_s = ft_strnew(1);
-	ft_strcpy(dec.tabIndex, "cspdiuxX%-0.*");
-	ft_funcpy(dec.tabFunction);
-	flag.ignr_zero = 0;
-	while (str[i] && i < (int)ft_strlen(str))
+	ft_strcpy(var->tabindex, "cspdiuxX%-0.*");
+	ft_funcpy(dec->tabfunction);
+	while (str[var->pos] && var->pos < (int)ft_strlen(str))
 	{
-		while (str[i] != '%' && str[i])
+		while (str[var->pos] != '%' && str[var->pos])
 		{
-			/* ajoute char lu a la fin de result_s */
-			result_s = ft_add_c_to_end_of_s(result_s, str[i]);
-			i++;
+			var->result_s = ft_add_c_to_end_of_s(var->result_s, str[var->pos]);
+			(var->pos)++;
 		}
-		//  printf("i = %d\n", i);
-		if (str[i] && str[i] == '%')
+		if (str[var->pos] && str[var->pos] == '%')
 		{
-			//  printf("i = %d\n", i);
-			i++;
-			if (ft_check(str, i, &flag))
+			(var->pos)++;
+			if (ft_check(str, var))
 			{
-				/* On analyse ce qu'il ya entre '%' et et le flag type */
-				/*dec.tmpIndex = find_index(dec.tabIndex, str[i]);
-				  dec.tabFunction[dec.tmpIndex] (str, &i, &list, result_s);
-				  ft_parse_inner(str, &i, &list, result_s);*/
-				/* init all flags containers */
-				ft_init_flag(&flag);
-				ft_parse_flag(str, &i, &flag, list);
-				//  ft_write_zero(&flag, result_s);
-				result_s = ft_get_type_and_flag(str, &i, &flag, list, result_s, &dec);
-				flag.ignr_zero = 0;
+				ft_parse_flag(str, var);
+				ft_get_type_and_flag(str, var, dec);
+				var->ignr_zero = 0;
 			}
 			else
-			{
-				/* tout free */
 				return (-1);
-			}
 		}
-		i++;
+		(var->pos)++;
 	}
-	/* On print le resultat finale */
-	ft_putstr(result_s);
-	return(ft_strlen(result_s));
+	ft_putstr(var->result_s);
+	return (ft_strlen(var->result_s));
 }

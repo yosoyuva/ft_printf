@@ -12,7 +12,7 @@
 
 #include "../inc/ft_printf.h"
 
-void	*ft_funcpy(char *(*dst[13]) (va_list *, t_flag *))
+void	*ft_funcpy(char *(*dst[13]) (t_fpt *))
 {
 	dst[0] = ft_printf_c;
 	dst[1] = ft_printf_s;

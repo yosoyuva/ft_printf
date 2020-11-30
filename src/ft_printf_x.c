@@ -12,9 +12,9 @@
 
 #include "../inc/ft_printf.h"
 
-char	*ft_printf_x(va_list *ap, t_flag *flag)
+char	*ft_printf_x(t_fpt *var)
 {
-  if (flag->zero)
+  if (var->zero)
   {}
-  return(ft_itoa_hex_long(va_arg(*ap, unsigned int)));
+  return(ft_itoa_hex_long(va_arg(var->list, unsigned int)));
 }

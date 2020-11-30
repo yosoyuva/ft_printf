@@ -27,15 +27,22 @@ int	is_type(char c)
 	return (0);
 }
 
-int	ft_check(const char *str, int i, t_flag *flag)
+int	ft_check(const char *str, t_fpt *var)
 {
-	while (is_flag(str[i]) && str[i] && !is_type(str[i]))
+	int i;
+
+	i = var->pos;
+	while (is_flag(str[var->pos]) && str[var->pos] && !is_type(str[var->pos]))
 	{
-		if (str[i] == '.')
-			flag->ignr_zero = 1;
-		(i)++;
+		if (str[var->pos] == '.')
+			var->ignr_zero = 1;
+		(var->pos)++;
 	}
-	if (str[i] && is_type(str[i]))
+	if (str[var->pos] && is_type(str[var->pos]))
+	{
+		var->pos = i;
 		return (1);
+	}
+	var->pos = i;
 	return (0);
 }

@@ -16,7 +16,7 @@
 # include "../lib/libft.h"
 # include <stdio.h>
 
-typedef struct  s_flag
+typedef struct  s_fpt
 {
   int zero;
   int minus;
@@ -24,40 +24,53 @@ typedef struct  s_flag
   int prc;
   int ignr_zero;
   int zero_was_ignrd;
-}               t_flag;
+  char    tabindex[15];
+  int     tmpindex;
+  //char    *(*tabfunction[15]) (t_fpt *);
+  va_list  list;
+  int      result;
+  char  *result_s;
+  int   pos;
+}               t_fpt;
 
-typedef struct  s_declare
+typedef struct  s_dec
+{
+  char    *(*tabfunction[15]) (t_fpt *);
+}               t_dec;
+
+/*typedef struct  s_declare
 {
   char    tabIndex[15];
   int     tmpIndex;
   char    *(*tabFunction[15]) (va_list *, t_flag *);
-}               t_declare;
+}               t_declare;*/
 
 int ft_printf(const char *format, ...);
 int find_index(char *tabIndex, char c);
 char  *ft_parse_inner(const char *str, int *i, va_list *list, char *result_s);
-void	ft_init_flag(t_flag *flag);
-void	ft_parse_flag(const char *str, int *i, t_flag *flag, va_list *ap);
-int   ft_parsing(const char *str, va_list *list);
-char  *ft_get_type_and_flag(const char *str, int *i, t_flag *flag, va_list *list, char *result_s, t_declare *dec);
-void	ft_get_zero(const char *str, int *i, t_flag *flag);
-void	ft_get_minus(const char *str, int *i, t_flag *flag);
-void	ft_get_digit(const char *str, int *i, t_flag *flag);
-char  *ft_write_zero(t_flag *flag, char *result_s);
+void	ft_init_flag(t_fpt *var);
+void	ft_parse_flag(const char *str, t_fpt *var);
+int   ft_parsing(const char *str, t_fpt *var, t_dec *dec);
+char  *ft_get_type_and_flag(const char *str, t_fpt *var, t_dec *dec);
+void	ft_get_zero(const char *str, t_fpt *var);
+void	ft_get_minus(const char *str, t_fpt *var);
+void	ft_get_digit(const char *str, t_fpt *var);
+//char  *ft_write_zero(t_flag *flag, char *result_s);
 int   is_flag(char c);
 int   is_type(char c);
-int   ft_check(const char *str, int i, t_flag *flag);
+int   ft_check(const char *str, t_fpt *var);
 char	*ft_add_c_to_end_of_s(char *s, char c);
-char	*ft_printf_c(va_list *ap, t_flag *flag);
-char	*ft_printf_d(va_list *ap, t_flag *flag);
-char	*ft_printf_s(va_list *ap, t_flag *flag);
-char	*ft_printf_p(va_list *ap, t_flag *flag);
-char	*ft_printf_u(va_list *ap, t_flag *flag);
-char	*ft_printf_i(va_list *ap, t_flag *flag);
-char	*ft_printf_xm(va_list *ap, t_flag *flag);
-char	*ft_printf_x(va_list *ap, t_flag *flag);
-char	*ft_printf_percent(va_list *ap, t_flag *flag);
-void    *ft_funcpy(char *(*dst[13]) (va_list *, t_flag *));
-void    ft_get_star(int *i, t_flag *flag, va_list *ap, const char *str);
-void    ft_get_prc(const char *str, int *i, t_flag *flag);
+char	*ft_printf_c(t_fpt *var);
+char	*ft_printf_d(t_fpt *var);
+char	*ft_printf_s(t_fpt *var);
+char	*ft_printf_p(t_fpt *var);
+char	*ft_printf_u(t_fpt *var);
+char	*ft_printf_i(t_fpt *var);
+char	*ft_printf_xm(t_fpt *var);
+char	*ft_printf_x(t_fpt *var);
+char	*ft_printf_percent(t_fpt *var);
+void    *ft_funcpy(char *(*dst[13]) (t_fpt *));
+void    ft_get_star(t_fpt *var, const char *str);
+void    ft_get_prc(const char *str, t_fpt *var);
+void	ft_init_var(t_fpt *var);
 #endif

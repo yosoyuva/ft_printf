@@ -12,13 +12,13 @@
 
 #include "../inc/ft_printf.h"
 
-char	*ft_printf_c(va_list *ap, t_flag *flag)
+char	*ft_printf_c(t_fpt *var)
 {
   char  *c;
 
-  if (flag->zero)
+  if (var->zero)
   {}
   c = ft_strnew(1);
-  c = ft_add_c_to_end_of_s(c, va_arg(*ap, int));
+  c = ft_add_c_to_end_of_s(c, va_arg(var->list, int));
   return (c);
 }

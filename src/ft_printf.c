@@ -14,14 +14,17 @@
 
 int ft_printf(const char *format, ...)
 {
-  va_list list;
-  int     result;
+  t_fpt fpt;
+  t_dec dec;
 
+  ft_init_var(&fpt);
 /* start reading the first arg */
-  va_start(list, format);
+  va_start(fpt.list, format);
 /* parsing args */
-  result = ft_parsing(format, &list);
+  fpt.result = ft_parsing(format, &fpt, &dec);
 /* close reading arg */
-  va_end(list);
-  return (result);
+  va_end(fpt.list);
+  free(fpt.result_s);
+//  printf("\nresult = %d\n", fpt.result);
+  return (fpt.result);
 }

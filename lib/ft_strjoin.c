@@ -29,3 +29,42 @@ char	*ft_strjoin(char const *s1, char const *s2)
 //	printf("strjoin = %s\n", str);
 	return (str);
 }
+
+/* fo = free s1 & ft = free s2 */
+char	*ft_strjoin_fo(char *s1, char const *s2)
+{
+	char	*str;
+	int		l1;
+	int		l2;
+
+	if (!s1 || !s2)
+		return (NULL);
+	l1 = ft_strlen(s1);
+	l2 = ft_strlen(s2);
+	if (!(str = (char *)malloc(sizeof(char) * (l1 + l2 + 1))))
+		return (NULL);
+	str = ft_strcpy(str, s1);
+	str = ft_strcat(str, s2);
+	free(s1);
+//	printf("strjoin = %s\n", str);
+	return (str);
+}
+
+char	*ft_strjoin_ft(char const *s1, char *s2)
+{
+	char	*str;
+	int		l1;
+	int		l2;
+
+	if (!s1 || !s2)
+		return (NULL);
+	l1 = ft_strlen(s1);
+	l2 = ft_strlen(s2);
+	if (!(str = (char *)malloc(sizeof(char) * (l1 + l2 + 1))))
+		return (NULL);
+	str = ft_strcpy(str, s1);
+	str = ft_strcat(str, s2);
+	free(s2);
+//	printf("strjoin = %s\n", str);
+	return (str);
+}

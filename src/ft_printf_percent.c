@@ -12,14 +12,14 @@
 
 #include "../inc/ft_printf.h"
 
-char	*ft_printf_percent(va_list *ap, t_flag *flag)
+char	*ft_printf_percent(t_fpt *var)
 {
   char  *c;
 
   c = ft_strnew(1);
-  if (ap[0])
+  if (var->zero)
   {}
   c = ft_add_c_to_end_of_s(c, '%');
-  ft_init_flag(flag);
+  ft_init_flag(var);
   return (c);
 }

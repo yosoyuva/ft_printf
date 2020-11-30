@@ -21,3 +21,14 @@ char	*ft_strnew_zero(size_t size)
 	ft_memset(s, '0', size + 1);
 	return (s);
 }
+
+char	*ft_strnew_zero_f(char *str, size_t size)
+{
+	void	*s;
+
+	if ((s = malloc(size + 1)) == NULL)
+		return (NULL);
+	ft_memset(s, '0', size + 1);
+	free(str);
+	return (s);
+}

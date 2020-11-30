@@ -12,9 +12,9 @@
 
 #include "../inc/ft_printf.h"
 
-char	*ft_printf_u(va_list *ap, t_flag *flag)
+char	*ft_printf_u(t_fpt *var)
 {
-  if (flag->zero)
+  if (var->zero)
   {}
-  return(ft_itoa_u(va_arg(*ap, unsigned int)));
+  return(ft_itoa_u(va_arg(var->list, unsigned int)));
 }
