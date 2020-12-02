@@ -6,7 +6,7 @@
 /*   By: ymehdi <ymehdi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/11 14:10:33 by ymehdi            #+#    #+#             */
-/*   Updated: 2020/06/10 12:39:21 by ymehdi           ###   ########.fr       */
+/*   Updated: 2020/12/02 11:16:59 by ymehdi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,9 @@ char	*ft_strjoin(char const *s1, char const *s2)
 		return (NULL);
 	str = ft_strcpy(str, s1);
 	str = ft_strcat(str, s2);
-//	printf("strjoin = %s\n", str);
 	return (str);
 }
 
-/* fo = free s1 & ft = free s2 */
 char	*ft_strjoin_fo(char *s1, char const *s2)
 {
 	char	*str;
@@ -46,7 +44,6 @@ char	*ft_strjoin_fo(char *s1, char const *s2)
 	str = ft_strcpy(str, s1);
 	str = ft_strcat(str, s2);
 	free(s1);
-//	printf("strjoin = %s\n", str);
 	return (str);
 }
 
@@ -65,6 +62,5 @@ char	*ft_strjoin_ft(char const *s1, char *s2)
 	str = ft_strcpy(str, s1);
 	str = ft_strcat(str, s2);
 	free(s2);
-//	printf("strjoin = %s\n", str);
 	return (str);
 }

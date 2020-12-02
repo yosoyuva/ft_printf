@@ -12,25 +12,22 @@
 
 #include "../inc/ft_printf.h"
 
-char	*ft_printf_p(t_fpt *var)
+char		*ft_printf_p(t_fpt *var)
 {
-  char  *s;
-  char  *arg;
-  char  nil[1];
+	char	*s;
+	char	*arg;
+	char	nil[1];
 
-  if (var->zero)
-  {}
-  nil[0] = '0';
-  //s = ft_strnew(1);
-  //arg = ft_strnew(1);
-  arg = ft_itoa_hex_long(va_arg(var->list,long int));
-  if (!ft_strcmp(arg, nil))
-  {
-    return (arg);
-  }
-  else
-    s = ft_strjoin("0x", arg);
-  free(arg);
-  return(s);
-  //return(ft_itoa_hex_long(va_arg(*ap, long int)));
+	if (var->zero)
+		var->zero = var->zero;
+	nil[0] = '0';
+	arg = ft_itoa_hex_long(va_arg(var->list, long int));
+	if (!ft_strcmp(arg, nil))
+	{
+		return (arg);
+	}
+	else
+		s = ft_strjoin("0x", arg);
+	free(arg);
+	return (s);
 }

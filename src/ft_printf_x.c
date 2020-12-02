@@ -14,7 +14,7 @@
 
 char	*ft_printf_x(t_fpt *var)
 {
-  if (var->zero)
-  {}
-  return(ft_itoa_hex_long(va_arg(var->list, unsigned int)));
+	if (var->zero)
+		var->zero = var->zero;
+	return (ft_itoa_hex_long(va_arg(var->list, unsigned int)));
 }

@@ -14,23 +14,7 @@
 
 char	*ft_printf_i(t_fpt *var)
 {
-	/*int  i;
-	char	*s;
-
-	i = va_arg(*ap, int);
-	s = ft_itoa(i);
-	if (s[0] == '0' && s[1] == 'x')
-		ft_putnbr_hex((long long int)i);
-	else if (s[0] == 0)
-		ft_putnbr_oct((long long int)i);
-  else
-		ft_putnbr(i);
-	while (flag->minus != 0)
-	{
-		ft_putchar(' ');
-		flag->minus--;
-	}*/
 	if (var->zero)
-  {}
+		var->zero = var->zero;
 	return (ft_itoa(va_arg(var->list, int)));
 }

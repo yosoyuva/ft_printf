@@ -6,7 +6,7 @@
 /*   By: ymehdi <ymehdi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/06 16:57:35 by ymehdi            #+#    #+#             */
-/*   Updated: 2020/06/02 14:01:54 by ymehdi           ###   ########.fr       */
+/*   Updated: 2020/12/02 11:15:51 by ymehdi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,5 @@ char	*ft_strndup_fo(char *s1, int size)
 	}
 	dest[i] = '\0';
 	free(s1);
-//	s1 = dest;
-//	free(dest);
 	return (dest);
 }

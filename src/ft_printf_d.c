@@ -14,7 +14,7 @@
 
 char	*ft_printf_d(t_fpt *var)
 {
-  if (var->zero)
-  {}
-  return(ft_itoa(va_arg(var->list, int)));
+	if (var->zero)
+		var->zero = var->zero;
+	return (ft_itoa(va_arg(var->list, int)));
 }

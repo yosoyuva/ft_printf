@@ -38,6 +38,7 @@ CFILE =	ft_add_c_to_end_of_s.c\
 			ft_printf.c\
 			ft_printf_x.c\
 			ft_printf_xm.c\
+			ft_get_type_and_flag_x.c\
 
 CFIND =		$(CFILE:%=$(SRC_DIR)%)
 

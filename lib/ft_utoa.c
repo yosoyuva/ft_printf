@@ -6,7 +6,7 @@
 /*   By: ymehdi <ymehdi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/08 19:25:08 by ymehdi            #+#    #+#             */
-/*   Updated: 2020/05/08 19:29:17 by ymehdi           ###   ########.fr       */
+/*   Updated: 2020/12/02 11:17:49 by ymehdi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int		ft_nlength_u(unsigned int n)
 	return (size);
 }
 
-char			*ft_utoa(unsigned int n)
+char	*ft_utoa(unsigned int n)
 {
 	int				i;
 	unsigned int	nb;

@@ -12,19 +12,15 @@
 
 #include "../inc/ft_printf.h"
 
-int ft_printf(const char *format, ...)
+int			ft_printf(const char *format, ...)
 {
-  t_fpt fpt;
-  t_dec dec;
+	t_fpt fpt;
+	t_dec dec;
 
-  ft_init_var(&fpt);
-/* start reading the first arg */
-  va_start(fpt.list, format);
-/* parsing args */
-  fpt.result = ft_parsing(format, &fpt, &dec);
-/* close reading arg */
-  va_end(fpt.list);
-  free(fpt.result_s);
-//  printf("\nresult = %d\n", fpt.result);
-  return (fpt.result);
+	ft_init_var(&fpt);
+	va_start(fpt.list, format);
+	fpt.result = ft_parsing(format, &fpt, &dec);
+	va_end(fpt.list);
+	free(fpt.result_s);
+	return (fpt.result);
 }

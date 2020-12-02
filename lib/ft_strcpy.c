@@ -6,7 +6,7 @@
 /*   By: ymehdi <ymehdi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/06 17:04:42 by ymehdi            #+#    #+#             */
-/*   Updated: 2020/06/10 12:39:17 by ymehdi           ###   ########.fr       */
+/*   Updated: 2020/12/02 11:15:08 by ymehdi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ char	*ft_strcpy(char *dst, const char *src)
 
 char	*ft_strcpy_wout_frst_c(const char *src)
 {
-	int	pos;
-	char *dst;
+	int		pos;
+	char	*dst;
 
 	pos = 0;
 	if (!(dst = malloc(sizeof(char) * (ft_strlen(src) + 2))))
@@ -44,32 +44,25 @@ char	*ft_strcpy_wout_frst_c(const char *src)
 	}
 	if (src[pos + 1] == '\0')
 		dst[pos] = '\0';
-//	printf("dst = %s\n", dst);
 	return (dst);
 }
 
-char  *ft_strcpy_from_pos(char *dst, const char *src, int pos)
+char	*ft_strcpy_from_pos(char *dst, const char *src, int pos)
 {
 	int i;
 
 	i = 0;
-//	printf("src = %s\n", src);
 	while (src[i] != '\0')
 	{
 		dst[i + pos] = src[i];
 		i++;
 	}
-//	printf("2\n");
 	if (src[i] == '\0')
 		dst[i + pos] = '\0';
-//	printf("3\n");
-	//printf("ds = %s\n", ds);
-//	free(ds);
-//	printf("dst = %s\n", dst);
 	return (dst);
 }
 
-char  *ft_strcpy_from_pos_f(char *dst, char *src, int pos)
+char	*ft_strcpy_from_pos_f(char *dst, char *src, int pos)
 {
 	int i;
 
@@ -87,8 +80,8 @@ char  *ft_strcpy_from_pos_f(char *dst, char *src, int pos)
 
 char	*ft_strcpy_wout_frst_c_f(char *src)
 {
-	int	pos;
-	char *dst;
+	int		pos;
+	char	*dst;
 
 	pos = 0;
 	if (!(dst = malloc(sizeof(char) * (ft_strlen(src) + 2))))
@@ -102,7 +95,6 @@ char	*ft_strcpy_wout_frst_c_f(char *src)
 	}
 	if (src[pos + 1] == '\0')
 		dst[pos] = '\0';
-//	printf("dst = %s\n", dst);
 	free(src);
 	return (dst);
 }
