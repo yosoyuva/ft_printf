@@ -6,7 +6,7 @@
 /*   By: ymehdi <ymehdi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/11 20:10:27 by ymehdi            #+#    #+#             */
-/*   Updated: 2020/12/06 12:12:23 by ymehdi           ###   ########.fr       */
+/*   Updated: 2020/12/06 18:30:30 by ymehdi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,9 @@ char						*ft_itoa(int n)
 	unsigned	int nb;
 	char			*s;
 
-	if (!(s = (char *)malloc(sizeof(char *) * (ft_nlength(n) + 1))))
-		return (NULL);
+	//if (!(s = (char *)malloc(sizeof(char *) * (ft_nlength(n) + 1))))
+	//	return (NULL);
+	s = ft_strnew(ft_nlength(n) + 1);
 	i = ft_nlength(n);
 	s[i] = '\0';
 	if (n < 0)
@@ -78,8 +79,9 @@ char						*ft_itoa_u(unsigned int n)
 	int						i;
 	char					*s;
 
-	if (!(s = (char *)malloc(sizeof(char) * (ft_nlength_u(n) + 1))))
-		return (NULL);
+	//if (!(s = (char *)malloc(sizeof(char) * (ft_nlength_u(n) + 1))))
+	//	return (NULL);
+	s = ft_strnew(ft_nlength_u(n) + 1);
 	i = ft_nlength_u(n);
 	s[i] = '\0';
 	while (--i >= 0)
