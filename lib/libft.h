@@ -6,7 +6,7 @@
 /*   By: ymehdi <ymehdi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/15 15:19:54 by ymehdi            #+#    #+#             */
-/*   Updated: 2020/12/02 13:49:25 by ymehdi           ###   ########.fr       */
+/*   Updated: 2020/12/06 21:07:22 by ymehdi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -197,5 +197,7 @@ char				*ft_strcpy_wout_frst_c_f(char *src);
 char				*ft_strnew_space_f(char *str, size_t size);
 
 char				*ft_strnew_zero_f(char *str, size_t size);
+
+char				*ft_itoa_hex_long_m(unsigned int nb);
 
 #endif

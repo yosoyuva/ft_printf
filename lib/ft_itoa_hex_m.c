@@ -6,7 +6,7 @@
 /*   By: ymehdi <ymehdi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/08 23:51:19 by ymehdi            #+#    #+#             */
-/*   Updated: 2020/12/06 18:27:32 by ymehdi           ###   ########.fr       */
+/*   Updated: 2020/12/06 20:57:38 by ymehdi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int		ft_nlength_hex_m(long int n)
 
 void	ft_itoa_hex_ma(int *i, unsigned long int *nb, char **s)
 {
-	while (*i >= 0 && (*s)[*i] != '-')
+	while ((*i >= 0 && (*s)[*i] != '-'))
 	{
 		if (*nb % 16 < 10)
 		{

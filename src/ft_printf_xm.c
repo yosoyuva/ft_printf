@@ -6,7 +6,7 @@
 /*   By: ymehdi <ymehdi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/13 06:03:49 by ymehdi            #+#    #+#             */
-/*   Updated: 2020/06/03 19:35:17 by ymehdi           ###   ########.fr       */
+/*   Updated: 2020/12/06 21:07:53 by ymehdi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,5 +16,5 @@ char	*ft_printf_xm(t_fpt *var)
 {
 	if (var->zero)
 		var->zero = var->zero;
-	return (ft_itoa_hex_m(va_arg(var->list, long int)));
+	return (ft_itoa_hex_long_m(va_arg(var->list, long int)));
 }
