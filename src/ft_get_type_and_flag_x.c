@@ -6,7 +6,7 @@
 /*   By: ymehdi <ymehdi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/01 16:10:19 by ymehdi            #+#    #+#             */
-/*   Updated: 2020/12/01 16:22:43 by ymehdi           ###   ########.fr       */
+/*   Updated: 2020/12/07 00:31:16 by ymehdi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,10 @@ void	ft_get_type_and_flag_d(t_fpt *var)
 {
 	if (var->digit > (int)ft_strlen(var->s))
 	{
-		var->size_arg = ft_strlen(var->s);
+		if (var->tmpindex == 0)
+			var->size_arg = 1;
+		else
+			var->size_arg = ft_strlen(var->s);
 		if (var->s[0] == '-' && (var->tmpindex < 8 && var->tmpindex > 2) && \
 		var->ignr_zero == 1 && var->prc < 0 && var->zero_was_ignrd == 1)
 		{
@@ -96,6 +99,9 @@ void	ft_get_type_and_flag_e(t_fpt *var)
 		if (var->minus == (int)ft_strlen(var->s) && var->s[0] == 0)
 			var->min = ft_strnew_space_f(var->min, \
 				var->minus - ft_strlen(var->s));
+		else if (var->tmpindex == 0)
+			var->min = ft_strnew_space_f(var->min, \
+					var->minus - var->size_arg - 1);
 		else
 			var->min = ft_strnew_space_f(var->min, \
 				var->minus - ft_strlen(var->s) - 1);
