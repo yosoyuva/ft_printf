@@ -6,7 +6,7 @@
 /*   By: ymehdi <ymehdi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/06 13:44:31 by ymehdi            #+#    #+#             */
-/*   Updated: 2020/12/06 22:29:38 by ymehdi           ###   ########.fr       */
+/*   Updated: 2020/12/07 15:40:22 by ymehdi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,17 @@ char	*ft_get_type_and_flag(const char *str, t_fpt *var, t_dec *dec)
 	if (var->s == NULL)
 		var->s = ft_strdup("(null)");
 	var->min = ft_strnew(1);
+/* cas spec l'arg est un \0 (%c) */
+	if (var->tmpindex == 0 && var->s[0] == 0)
+	{
+		ft_putstr(var->result_s);
+		ft_printf_c_bin(var);
+		free(var->result_s);
+		var->result_s = ft_strdup("");
+		free(var->s);
+		free(var->min);
+		return (NULL);
+	}
 	if (var->tmpindex == 0)
 		var->size_arg = 1;
 	else

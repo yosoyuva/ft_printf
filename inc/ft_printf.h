@@ -6,7 +6,7 @@
 /*   By: ymehdi <ymehdi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/24 15:59:02 by ymehdi            #+#    #+#             */
-/*   Updated: 2020/12/02 13:50:52 by ymehdi           ###   ########.fr       */
+/*   Updated: 2020/12/07 16:51:48 by ymehdi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,5 +73,6 @@ int				ft_get_type_and_flag_b(t_fpt *var);
 int				ft_get_type_and_flag_c(t_fpt *var);
 void			ft_get_type_and_flag_d(t_fpt *var);
 void			ft_get_type_and_flag_e(t_fpt *var);
+void			ft_printf_c_bin(t_fpt *var);
 
 #endif
