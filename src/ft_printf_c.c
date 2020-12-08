@@ -41,7 +41,7 @@ void		ft_printf_c_bin(t_fpt *var)
 	//var->result_s = ft_strjoin_fo(var->result_s, var->s);
 
 	if (var->minus > 1 || \
-	(var->minus == 1 && var->s[0] == 0 && var->minus > 0))
+	(var->minus == 1 && var->minus - 2 >= 0 && var->minus > 0))
 	{
 		if (var->minus == 1 && var->s[0] == 0)
 			var->min = ft_strnew_space_f(var->min, \
