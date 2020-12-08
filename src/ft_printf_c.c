@@ -6,7 +6,11 @@
 /*   By: ymehdi <ymehdi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/13 05:59:40 by ymehdi            #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2020/12/08 12:43:43 by ymehdi           ###   ########.fr       */
+=======
+/*   Updated: 2020/12/08 12:23:09 by ymehdi           ###   ########.fr       */
+>>>>>>> 5b85cca2ad484a5e9a519432548dcba1477869ec
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +31,11 @@ char		*ft_printf_c(t_fpt *var)
 
 void		ft_printf_c_bin(t_fpt *var)
 {
+<<<<<<< HEAD
 	var->size_arg  = 1;
+=======
+	var->size_arg = 1;
+>>>>>>> 5b85cca2ad484a5e9a519432548dcba1477869ec
 	if (var->digit > 1)
 	{
 		var->min = ft_strnew_space_f(var->min, \
