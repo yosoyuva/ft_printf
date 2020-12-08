@@ -6,7 +6,7 @@
 /*   By: ymehdi <ymehdi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/24 15:59:02 by ymehdi            #+#    #+#             */
-/*   Updated: 2020/12/07 16:51:48 by ymehdi           ###   ########.fr       */
+/*   Updated: 2020/12/08 12:39:50 by ymehdi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ typedef struct	s_fpt
 	int			size_arg;
 	char		*s;
 	char		*min;
+	int			size_read;
 }				t_fpt;
 
 typedef struct	s_dec

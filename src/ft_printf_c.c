@@ -6,7 +6,7 @@
 /*   By: ymehdi <ymehdi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/13 05:59:40 by ymehdi            #+#    #+#             */
-/*   Updated: 2020/12/07 16:52:57 by ymehdi           ###   ########.fr       */
+/*   Updated: 2020/12/08 12:43:43 by ymehdi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,14 +27,18 @@ char		*ft_printf_c(t_fpt *var)
 
 void		ft_printf_c_bin(t_fpt *var)
 {
+	var->size_arg  = 1;
 	if (var->digit > 1)
 	{
 		var->min = ft_strnew_space_f(var->min, \
 			var->digit - var->size_arg - 1);
+		//printf("size =%d, var->min =%s\ne", var->digit -1, var->min);
 		ft_putstr(var->min);
+		var->size_read = ft_strlen(var->min) + var->size_read;
 		//var->result_s = ft_strjoin_fo(var->result_s, var->min);
 	}
 	ft_putchar(0);
+	var->size_read++;
 	//var->result_s = ft_strjoin_fo(var->result_s, var->s);
 
 	if (var->minus > 1 || \
@@ -42,14 +46,15 @@ void		ft_printf_c_bin(t_fpt *var)
 	{
 		if (var->minus == 1 && var->s[0] == 0)
 			var->min = ft_strnew_space_f(var->min, \
-				var->minus - 1);
+				var->minus - 2);
 		else if (var->tmpindex == 0)
 			var->min = ft_strnew_space_f(var->min, \
 					var->minus - var->size_arg - 1);
 		else
 			var->min = ft_strnew_space_f(var->min, \
-				var->minus - -1 - 1);
+				var->minus - 1 - 1);
 		ft_putstr(var->min);
+		var->size_read = ft_strlen(var->min) + var->size_read;
 		//var->result_s = ft_strjoin_fo(var->result_s, var->min);
 	}
 }
