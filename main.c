@@ -36,8 +36,8 @@ int main()
   //ft_printf(" --- Return : %d\n", ft_printf("%i, %d, %d, %d, %d, %s, %c, %d, %u, %x, %X", i, j, k, l, m, n, c, c, j, j, j));
   //printf(" --- Return : %d\n", printf("%i, %d, %d, %d, %d, %s, %c, %d, %u, %x, %X", i, j, k, l, m, n, c, c, j, j, j));
 
-  ft_printf(" --- Return : %d\n", ft_printf("%c, %-c, %12c, %-3c, %-1c, %1c,%s %-2c, %-4c, %5c, %3c, %-*c, %-*c, %*c, %*c", 0, 0, 0, 0, 0, 0, "bonjour", 0, 0, 0, 0, -1, 0, 0, 0, 0, 0, 0, 0));
-  printf(" --- Return : %d\n", printf("%c, %-c, %12c, %-3c, %-1c, %1c,%s %-2c, %-4c, %5c, %3c, %-*c, %-*c, %*c, %*c", 0, 0, 0, 0, 0, 0, "bonjour", 0, 0, 0, 0, -1, 0, 0, 0, 0, 0, 0, 0));
+  ft_printf(" --- Return : %d\n", ft_printf("%c, %-c, %12c, %-3c, %-1c, %1c, %-2c, %-4c, %5c, %3c, %-*c, %-*c, %*c, %*c", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 12, 0, 12, 0, 12, 0, 12, 0));
+  printf(" --- Return : %d\n", printf("%c, %-c, %12c, %-3c, %-1c, %1c, %-2c, %-4c, %5c, %3c, %-*c, %-*c, %*c, %*c", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 12, 0, 12, 0, 12, 0, 12, 0));
   //ft_printf("%12c\n", 0);
   //printf("%12c\n", 0);
 }
