@@ -6,7 +6,7 @@
 /*   By: ymehdi <ymehdi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/08 19:25:08 by ymehdi            #+#    #+#             */
-/*   Updated: 2020/12/06 18:28:51 by ymehdi           ###   ########.fr       */
+/*   Updated: 2020/12/09 13:14:54 by ymehdi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,6 @@ char	*ft_utoa(unsigned int n)
 	unsigned int	nb;
 	char			*s;
 
-	//if (!(s = (char *)malloc(sizeof(char) * (ft_nlength_u(n) + 1))))
-	//	return (NULL);
 	s = ft_strnew(ft_nlength_u(n) + 1);
 	i = ft_nlength_u(n);
 	s[i] = '\0';
