@@ -6,7 +6,7 @@
 /*   By: ymehdi <ymehdi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/13 06:00:38 by ymehdi            #+#    #+#             */
-/*   Updated: 2020/06/10 22:05:59 by ymehdi           ###   ########.fr       */
+/*   Updated: 2020/12/14 15:41:12 by ymehdi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,11 @@ char		*ft_printf_p(t_fpt *var)
 		var->zero = var->zero;
 	nil[0] = '0';
 	arg = ft_itoa_hex_long(va_arg(var->list, long int));
-	if (!ft_strcmp(arg, nil))
+/*	if (!ft_strcmp(arg, nil))
 	{
 		return (arg);
 	}
-	else
+	else*/
 		s = ft_strjoin("0x", arg);
 	free(arg);
 	return (s);
