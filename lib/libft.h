@@ -6,7 +6,7 @@
 /*   By: ymehdi <ymehdi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/15 15:19:54 by ymehdi            #+#    #+#             */
-/*   Updated: 2020/12/14 16:37:18 by ymehdi           ###   ########.fr       */
+/*   Updated: 2020/12/14 16:42:48 by ymehdi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -202,6 +202,6 @@ char				*ft_itoa_hex_long_m(unsigned int nb);
 
 char				*ft_itoa_hex_long_p(unsigned long int nb);
 
-int					ft_nlength_hex_long_p(unsigned long int n)
+int					ft_nlength_hex_long_p(unsigned long int n);
 
 #endif
